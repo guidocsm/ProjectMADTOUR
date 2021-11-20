@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const artSchema = new Schema(
   {
     name: String,
-    descriptions: String,
+    description: String,
     creationDate: Date,
     type: {
         type: String,
@@ -28,6 +28,6 @@ const artSchema = new Schema(
   {timestamps: true }
 );
 
-const Art = mongoose.model('Art', artechema);
+const Art = mongoose.model('Art', artSchema);
 
 module.exports = Art;
