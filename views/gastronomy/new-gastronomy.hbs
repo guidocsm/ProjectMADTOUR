@@ -1,0 +1,58 @@
+<h1>New Gastronomy</h1>
+<div>
+  <h2 class="new-art">New Movie</h2>
+  <form action="/gastronomy/create" method="POST">
+    <label>
+      Name:
+      <input type="text" name="name" />
+    </label>
+    <label>
+      type:
+      <select name="type">
+        <option>Restaurant</option>
+        <option>Bar</option>
+      </select>
+    </label>
+    <label>
+      Description:
+      <input type="text" name="description" />
+    </label>
+    <label>
+      price:
+      <select name="price">
+        <option>Economic</option>
+        <option>Normal</option>
+        <option>Expensive</option>
+      </select>
+    </label>
+    <label>
+      Food:
+      <input type="text" name="food" />
+    </label>
+    <label>
+      Location:
+      <input type="text" name="lat" />
+      <input type="text" name="lng" />
+    </label>
+    <label>
+      Review:
+      <input type="text" name="" />
+    </label>
+    <label>
+      Website:
+      <input type="text" name="webSite" />
+    </label>
+    <label>
+      Opening Time:
+      <input type="text" name="openingTime" />
+    </label>
+    <label>
+      ClosingTime:
+      <input type="text" name="closingTime" />
+    </label>
+    <input type="submit" />
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>

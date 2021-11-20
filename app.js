@@ -32,6 +32,11 @@ app.use("/auth", authRoutes);
 const artRoutes = require("./routes/art.routes");
 app.use("/arts", artRoutes);
 
+const entRoutes = require("./routes/ent.routes");
+app.use("/ent", entRoutes);
+
+const gastronomyRoutes = require("./routes/gastronomy.routes");
+app.use("/gastronomy", gastronomyRoutes);
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);

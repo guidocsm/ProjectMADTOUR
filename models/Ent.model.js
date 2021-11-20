@@ -8,11 +8,17 @@ const entSchema = new Schema(
       type: String,
       enum: ["Disco", "Pub", "Outdoor"],
     },
-    music: Boolean,
+    music: String,
     musicType: String,
     price: {
       type: String,
       enum: ["Economic", "Normal", "Expensive"]
+    },
+    location: {
+      type: {
+        type: String,
+      },
+      coords: [Number],
     },
     review: { type: Schema.Types.ObjectId, ref: "Review" },
     webSite: String,

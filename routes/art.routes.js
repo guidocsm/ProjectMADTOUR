@@ -18,9 +18,9 @@ router.get("/create", (req, res) => {
 });
 
 router.post("/create", (req, res) => {
-    const { name, description, creationDate, type, image, owner, capacity, location, review, webSide, openingTime, closingTime } = req.body;
+    const { name, description, creationDate, type, image, owner, capacity, location, review, webSite, openingTime, closingTime } = req.body;
    
-    Art.create(  {name, description, creationDate, type, image, owner, capacity, location, review, webSide, openingTime, closingTime} )
+    Art.create(  {name, description, creationDate, type, image, owner, capacity, location, review, webSite, openingTime, closingTime} )
       .then((art) => {
         res.redirect("/arts/all-arts");
       })

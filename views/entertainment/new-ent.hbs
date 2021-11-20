@@ -1,0 +1,76 @@
+<h1>New Entertainment</h1>
+
+<div>
+    <h2 class="new-art">New</h2>
+
+    <form action="/ent/create" method="POST">
+
+    <label>
+        Name:
+        <input type="text" name="name">
+    </label>
+    
+    <label>
+        type:
+       <select name="type">
+                    <option>Disco</option>
+                    <option>Pub</option>
+                    <option>Outdoor</option>
+            </select>
+    </label>
+
+    <label>
+        Music:
+        <input type="checkbox" name="music">
+    </label>
+
+    <label>
+        Music Type:
+        <input type="text" name="musicType" placeholder="Reggaeton">
+    </label>
+
+
+    <label>
+        Price:
+       <select name="type">
+                    <option>Economic</option>
+                    <option>Normal</option>
+                    <option>Expensive</option>
+            </select>
+    </label>
+
+    <label>
+        Location:
+        <input type="text" name="lat">
+         <input type="text" name="lng">
+    </label>
+
+    <label>
+        Review:
+        <input type="text" name="">
+    </label>
+
+    <label>
+        Website:
+        <input type="text" name="webSite">
+    </label>
+
+    <label>
+        Opening Time:
+        <input type="text" name="openingTime">
+    </label>
+    
+    <label>
+        ClosingTime:
+        <input type="text" name="closingTime">
+    </label>
+
+        <input type="submit">
+
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+    </form>
+
+</div>
