@@ -8,7 +8,7 @@ router.get("/all-gastronomy", (req, res) => {
 
 router.get("/create", (req, res) => {
   Gastronomy.find().then((gasts) => {
-    res.render("gastronomy/new-art", { gasts });
+    res.render("gastronomy/new-gastronomy", { gasts });
   });
 });
 

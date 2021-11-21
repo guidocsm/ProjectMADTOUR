@@ -56,6 +56,18 @@ h1 {
   font-weight: bold;
   font-size: 3rem;
   text-align: center;
+  letter-spacing: 1.5;
+}
+.links-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 300px;
+  justify-content: space-between;
+}
+
+.links-content a {
+  padding: 4px;
 }
 
 .container.card-index {
@@ -81,6 +93,7 @@ h1 {
   border-bottom-right-radius: 160px;
   box-shadow: 0 15px 0 #fff, inset 0 -15px 0 rgba(255, 255, 255, 0.24), 0 45px 0 rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  font-family: Poppins;
 }
 
 .card::before {
@@ -98,23 +111,39 @@ h1 {
 }
 
 .card:nth-child(1) {
-  background: linear-gradient(to bottom, #ff2ae0, #645bf6);
+  background-image: url("../images/Museo-del-Prado_Madrid.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .card:nth-child(2) {
   background: linear-gradient(to bottom, #e40e07, #f321d7);
+
+  background-image: url("../images/JI-Carne-Cruda-Asada.jpg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .card:nth-child(3) {
   background: linear-gradient(to bottom, #24ff72, #9a4eff);
+  background-image: url("..//images/discoteca-3.jpg");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .card .content {
   position: absolute;
   width: 100%;
   padding: 30px;
-  padding-top: 150px;
+  padding-top: 230px;
   text-align: center;
+}
+
+.card .content:hover {
+  transform: scale(1.05);
 }
 
 .card .content h2 {
