@@ -1,11 +1,8 @@
 require("dotenv/config");
 require("./../db");
-const Art = require("../models/Art.model");
-const Ent = require("../models/Ent.model")
-const Gastronomy = require("../models/Gastronomy.model")
+const Interest = require("../models/Interest.model");
 
-
-const art_json = [
+const interest_json = [
   {
     name: "Museo del Prado",
     description:
@@ -67,127 +64,117 @@ const art_json = [
     //review: { type: Schema.Types.ObjectId, ref: "Review" },
     openingTime: "24h",
   },
+  {
+    name: "Kapital",
+    type: "Disco",
+    musicType: "Shuffle",
+    price: "Expensive",
+    location: {
+      coords: ["40.41103860894415", "-3.6935275087847415"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://teatrokapital.com/",
+    openingTime: "22h",
+    closingTime: "06h",
+  },
+  {
+    name: "Fabrik",
+    type: "Disco",
+    musicType: "Shuffle",
+    price: "Expensive",
+    location: {
+      coords: ["40.265685849600224", "-3.8405364961606714"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://https://fabrikclub.com/.com/",
+    openingTime: "19:30h",
+    closingTime: "06h",
+  },
+  {
+    name: "Cherokee",
+    type: "Pub",
+    musicType: "Shuffle",
+    price: "Normal",
+    location: {
+      coords: ["40.427079155819754", "-3.6957263399663134"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://www.facebook.com/CherokeeMadrid",
+    openingTime: "22h",
+    closingTime: "03h",
+  },
+  {
+    name: "Riu Plaza",
+    type: "Outdoor",
+    musicType: "Shuffle",
+    price: "Expensive",
+    location: {
+      coords: ["40.4252822039076", "-3.7104951320877095"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite:
+      "https://www.riu.com/es/hotel/espana/madrid/hotel-riu-plaza-espana/?utm_source=google&utm_medium=organic&utm_campaign=my_business&utm_content=ZES",
+    openingTime: "11h",
+    closingTime: "02h",
+  },
+  {
+    name: "La carlota",
+    type: "Restaurant",
+    price: "Normal",
+    food: "Japonesa, Sushi",
+    location: {
+      coordinates: ["40.42271129138648", "-3.6943453018021866"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://lacarlotamadrid.es/carta-lacarlotarestaurante/",
+    openingTime: "14h",
+    closingTime: "00h",
+    image: "https://media-cdn.tripadvisor.com/media/photo-f/16/8b/70/39/la-carlota.jpg",
+  },
+  {
+    name: "Taberna El pirata ",
+    type: "Restaurant",
+    price: "Normal",
+    food: "Americana, cerveza artesanal",
+    location: {
+      coordinates: ["40.41494446344406", "-3.7047709748146804"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://www.tripadvisor.es/Restaurant_Review-g187514-d20204382-Reviews-Taberna_el_pirata_ll-Madrid.html",
+    openingTime: "08h",
+    closingTime: "00h",
+    image: "https://media-cdn.tripadvisor.com/media/photo-f/1b/97/98/c4/hamburguesas.jpg",
+  },
+  {
+    name: "Allright ",
+    type: "Restaurant",
+    price: "Normal",
+    food: "Americana, opciones vegetarianas",
+    location: {
+      coordinates: ["40.43771787844112", "-3.6875880387515205"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://alright.es/",
+    openingTime: "08h",
+    closingTime: "00h",
+    image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elle-restaurante-allright-8-1556206301.jpg",
+  },
+  {
+    name: "DiverXO ",
+    type: "Restaurant",
+    price: "Expensive",
+    food: "Gourmet",
+    location: {
+      coordinates: ["40.45852234141739", "-3.6858077000000034"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://diverxo.com/",
+    openingTime: "13h",
+    closingTime: "00:30h",
+    image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elle-restaurante-allright-8-1556206301.jpg",
+  },
 ];
-Art.create(art_json)
-  .then((arts) => console.log(`Created ${arts.length} arts places!`))
-  .catch((err) => console.log(err));
 
-const ent_json = [
-    {
-        name: "Kapital",
-        type: "Disco",
-        musicType: "Shuffle",
-        price: "Expensive",
-        location: {
-          coords: ["40.41103860894415", "-3.6935275087847415"],
-        },
-        // review: { type: Schema.Types.ObjectId, ref: "Review" },
-        webSite: "https://teatrokapital.com/",
-        openingTime: "22h",
-        closingTime: "06h"
-      },
-    {
-        name: "Fabrik",
-        type: "Disco",
-        musicType: "Shuffle",
-        price: "Expensive",
-        location: {
-          coords: ["40.265685849600224", "-3.8405364961606714"],
-        },
-        // review: { type: Schema.Types.ObjectId, ref: "Review" },
-        webSite: "https://https://fabrikclub.com/.com/",
-        openingTime: "19:30h",
-        closingTime: "06h"
-      },
-      {
-        name: "Cherokee",
-        type: "Pub",
-        musicType: "Shuffle",
-        price: "Normal",
-        location: {
-          coords: ["40.427079155819754", "-3.6957263399663134"],
-        },
-        // review: { type: Schema.Types.ObjectId, ref: "Review" },
-        webSite: "https://www.facebook.com/CherokeeMadrid",
-        openingTime: "22h",
-        closingTime: "03h"
-      },
-      {
-        name: "Riu Plaza",
-        type: "Outdoor",
-        musicType: "Shuffle",
-        price: "Expensive",
-        location: {
-          coords: ["40.4252822039076", "-3.7104951320877095"],
-        },
-        // review: { type: Schema.Types.ObjectId, ref: "Review" },
-        webSite: "https://www.riu.com/es/hotel/espana/madrid/hotel-riu-plaza-espana/?utm_source=google&utm_medium=organic&utm_campaign=my_business&utm_content=ZES",
-        openingTime: "11h",
-        closingTime: "02h"
-      },
-];
-Ent.create(ent_json)
-  .then((ents) => console.log(`Created ${ents.length} entertainment places!`))
+Interest.create(interest_json)
+  .then((interests) => console.log(`Created ${interests.length} interest places!`))
   .catch((err) => console.log(err));
-
-  const gastronomy_json = [
-    {
-      name: "La carlota",
-      type: "Restaurant",
-      price: "Normal",
-      food: "Japonesa, Sushi",
-      location: {
-        coordinates: ["40.42271129138648", "-3.6943453018021866"],
-      },
-      // review: { type: Schema.Types.ObjectId, ref: "Review" },
-      webSite: "https://lacarlotamadrid.es/carta-lacarlotarestaurante/",
-      openingTime: "14h",
-      closingTime: "00h",
-      image: "https://media-cdn.tripadvisor.com/media/photo-f/16/8b/70/39/la-carlota.jpg",
-    },
-    {
-      name: "Taberna El pirata ",
-      type: "Restaurant",
-      price: "Normal",
-      food: "Americana, cerveza artesanal",
-      location: {
-        coordinates: ["40.41494446344406", "-3.7047709748146804"],
-      },
-      // review: { type: Schema.Types.ObjectId, ref: "Review" },
-      webSite: "https://www.tripadvisor.es/Restaurant_Review-g187514-d20204382-Reviews-Taberna_el_pirata_ll-Madrid.html",
-      openingTime: "08h",
-      closingTime: "00h",
-      image: "https://media-cdn.tripadvisor.com/media/photo-f/1b/97/98/c4/hamburguesas.jpg",
-    },
-    {
-      name: "Allright ",
-      type: "Restaurant",
-      price: "Normal",
-      food: "Americana, opciones vegetarianas",
-      location: {
-        coordinates: ["40.43771787844112", "-3.6875880387515205"],
-      },
-      // review: { type: Schema.Types.ObjectId, ref: "Review" },
-      webSite: "https://alright.es/",
-      openingTime: "08h",
-      closingTime: "00h",
-      image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elle-restaurante-allright-8-1556206301.jpg",
-    },
-    {
-      name: "DiverXO ",
-      type: "Restaurant",
-      price: "Expensive",
-      food: "Gourmet",
-      location: {
-        coordinates: ["40.45852234141739", "-3.6858077000000034"],
-      },
-      // review: { type: Schema.Types.ObjectId, ref: "Review" },
-      webSite: "https://diverxo.com/",
-      openingTime: "13h",
-      closingTime: "00:30h",
-      image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elle-restaurante-allright-8-1556206301.jpg",
-    },
-  ];
-  Gastronomy.create(gastronomy_json)
-    .then((gasts) => console.log(`Created ${gasts.length} gastronomy places!`))
-    .catch((err) => console.log(err));
