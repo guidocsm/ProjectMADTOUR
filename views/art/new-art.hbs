@@ -1,76 +1,73 @@
 <h1>New Art</h1>
 <div>
 
-    <form action="/arts/create" method="POST">
+  <form action="/arts/create" method="POST" enctype="multipart/form-data">
 
     <label>
-        Name:
-        <input type="text" name="name">
-    </label>
-
-    <label>
-        Description:
-        <input type="text" name="description">
+      Name:
+      <input type="text" name="name" />
     </label>
 
     <label>
-        creationDate:
-        <input type="date" name="date">
-    </label>
-    
-    <label>
-        type:
-       <select name="type">
-                    <option>Monument</option>
-                    <option>Museum</option>
-                    <option>Theater</option>
-            </select>
+      Description:
+      <input type="text" name="description" />
     </label>
 
     <label>
-        Image:
-        <input type="file" name="image">
-    </label>
-
-
-    <label>
-        Owner:
-        <input type="text" name="owner">
+      creationDate:
+      <input type="date" name="date" />
     </label>
 
     <label>
-        Capacity:
-        <input type="text" name="capacity">
-    </label>
-        <label>
-        Location:
-        <input type="text" name="lat">
-         <input type="text" name="lng">
-    </label>
-        <label>
-        Review:
-        <input type="text" name="">
-    </label>
-        <label>
-        Website:
-        <input type="text" name="webSite">
-    </label>
-        <label>
-        Opening Time:
-        <input type="text" name="openingTime">
-    </label>
-        <label>
-        ClosingTime:
-        <input type="text" name="closingTime">
+      type:
+      <select name="type">
+        <option>Monument</option>
+        <option>Museum</option>
+        <option>Theater</option>
+      </select>
     </label>
 
+    <label>
+      Image:
+      <input type="file" name="image" class="form-control-file" />
+    </label>
 
-        <input type="submit">
+    <label>
+      Owner:
+      <input type="text" name="owner" />
+    </label>
 
+    <label>
+      Capacity:
+      <input type="text" name="capacity" />
+    </label>
+    <label>
+      Location:
+      <input type="text" name="lat" />
+      <input type="text" name="lng" />
+    </label>
+    <label>
+      Review:
+      <input type="text" name="" />
+    </label>
+    <label>
+      Website:
+      <input type="text" name="webSite" />
+    </label>
+    <label>
+      Opening Time:
+      <input type="text" name="openingTime" />
+    </label>
+    <label>
+      ClosingTime:
+      <input type="text" name="closingTime" />
+    </label>
+
+    <input type="submit" />
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-    </form>
+  </form>
 
 </div>
