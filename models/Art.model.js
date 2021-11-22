@@ -10,7 +10,7 @@ const artSchema = new Schema(
         type: String,
         enum: ["Monument", "Museum", "Theater"]
     },
-    image: String,
+ 
     owner: String,
     capacity: String,
     location: {
@@ -23,6 +23,7 @@ const artSchema = new Schema(
       webSite: String,
       openingTime: String,
       closingTime: String,
+      image: String,
   },
 
   {timestamps: true }
