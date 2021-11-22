@@ -20,42 +20,9 @@ Guido Crespo
 
 #Puntos principales
 #Endpoints
+![image](https://user-images.githubusercontent.com/87949164/142887400-5a85702c-0d04-4f9a-bb0d-bb55415137f9.png)
 
-METHOD	PATH
-GET	/
-GET	/portal
-GET	/auth/login
-GET	/auth/signup
-GET	/auth/logout
-	
-GET	/arts/all-arts
-GET	/arts/create
-POST	/arts/create
-GET	/arts/details/:id
-GET	/arts/edit/:id
-POST	/arts/edit/:id
-GET	/arts/delete/:id
-	
-	
-GET	/gastronomy/all-gastronomy
-GET	/gastronomy/create
-POST	/gastronomy/create
-GET	/gastronomy/details/:id
-GET	/gastronomy/edit/:id
-POST	/gastronomy/edit/:id
-GET	/gastronomy/delete/:id
-	
-	
-GET	/ent/all-ent
-GET	/ent/create
-POST	/ent/create
-GET	/ent/details/:id
-GET	/ent/edit/:id
-POST	/ent/edit/:id
-GET	/ent/delete/:id
-	
-GET	/api/weather
-GET	/api/recomendation
+
 
 
 ## Licencia 📄
