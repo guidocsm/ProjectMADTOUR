@@ -22,7 +22,8 @@ const gastronomySchema = new Schema(
     review: { type: Schema.Types.ObjectId, ref: "Review" },
     webSite: String,
     openingTime: String,
-    closingTime: String
+    closingTime: String,
+    image: String,
   },
   { timestamps: true }
 );

@@ -1,8 +1,22 @@
 <h1 class="art-details">Details</h1>
 
-{{art.name}}
-{{art.type}}
-{{art.creationDate}}
-{{art.description}}
 
+Name:
+{{art.name}}
+<br>
+
+Type:
+{{art.type}}
+<br>
+
+Creation Date:
+{{art.creationDate}}
+<br>
+
+Description:
+{{art.description}}
+<br>
+
+<a href="/arts/edit/{{art.id}}">Edit</a>
+<br>
 <a href="/arts/{{art.id}}/delete">Delete</a>

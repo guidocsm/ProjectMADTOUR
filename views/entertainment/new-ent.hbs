@@ -1,7 +1,5 @@
-<h1>New Entertainment</h1>
-
 <div>
-    <h2 class="new-art">New</h2>
+    <h1 class="new-art">New Entertainment</h1>
 
     <form action="/ent/create" method="POST">
 
@@ -11,12 +9,12 @@
     </label>
     
     <label>
-        type:
+        Type:
        <select name="type">
-                    <option>Disco</option>
-                    <option>Pub</option>
-                    <option>Outdoor</option>
-            </select>
+                    <option value="Disco">Disco</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Outdoor">Outdoor</option>
+        </select>
     </label>
 
     <label>
@@ -32,17 +30,17 @@
 
     <label>
         Price:
-       <select name="type">
-                    <option>Economic</option>
-                    <option>Normal</option>
-                    <option>Expensive</option>
+       <select name="price">
+                    <option value="Economic">Economic</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Expensive">Expensive</option>
             </select>
     </label>
 
     <label>
         Location:
-        <input type="text" name="lat">
-         <input type="text" name="lng">
+        <input type="text" name="lat" placeholder="latitude">
+         <input type="text" name="lng" placeholder="length">
     </label>
 
     <label>

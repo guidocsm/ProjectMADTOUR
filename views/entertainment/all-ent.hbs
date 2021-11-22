@@ -1,3 +1,9 @@
 <h1>Entertainment</h1>
 
-<a href="/ent/new-ent">Create new</a>
+{{#each ents}}
+    <a href="/ent/details/{{id}}"><h3>{{name}}</h3></a>
+{{/each}}
+
+<a href="/ent/create">Create new</a>
+<br>
+<a href="/">Back to main menu</a>
