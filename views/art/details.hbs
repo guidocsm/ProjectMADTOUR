@@ -1,22 +1,36 @@
 <h1 class="art-details">Details</h1>
 
-
 Name:
 {{art.name}}
-<br>
+<br />
 
 Type:
 {{art.type}}
-<br>
+<br />
 
 Creation Date:
 {{art.creationDate}}
-<br>
+<br />
 
 Description:
 {{art.description}}
-<br>
+<br />
+<img src="{{art.image}}" />
 
-<a href="/arts/edit/{{art.id}}">Edit</a>
-<br>
-<a href="/arts/{{art.id}}/delete">Delete</a>
+{{#if isAdmin}}
+
+  <a href="/arts/edit/{{art.id}}">Edit</a>
+  <br />
+
+  <a href="/arts/{{art.id}}/delete">Delete</a>
+
+{{/if}}
+
+{{#if isOwner}}
+
+  <a href="/arts/edit/{{art.id}}">Edit</a>
+  <br />
+
+  <a href="/arts/{{art.id}}/delete">Delete</a>
+
+{{/if}}

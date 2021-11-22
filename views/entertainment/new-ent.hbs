@@ -1,74 +1,72 @@
 <div>
-    <h1 class="new-art">New Entertainment</h1>
+  <h1 class="new-art">New Entertainment</h1>
 
-    <form action="/ent/create" method="POST">
+  <form action="/ent/create" method="POST" enctype="multipart/form-data">
 
     <label>
-        Name:
-        <input type="text" name="name">
-    </label>
-    
-    <label>
-        Type:
-       <select name="type">
-                    <option value="Disco">Disco</option>
-                    <option value="Pub">Pub</option>
-                    <option value="Outdoor">Outdoor</option>
-        </select>
+      Name:
+      <input type="text" name="name" />
     </label>
 
     <label>
-        Music:
-        <input type="checkbox" name="music">
+      Type:
+      <select name="type">
+        <option value="Disco">Disco</option>
+        <option value="Pub">Pub</option>
+        <option value="Outdoor">Outdoor</option>
+      </select>
     </label>
 
     <label>
-        Music Type:
-        <input type="text" name="musicType" placeholder="Reggaeton">
-    </label>
-
-
-    <label>
-        Price:
-       <select name="price">
-                    <option value="Economic">Economic</option>
-                    <option value="Normal">Normal</option>
-                    <option value="Expensive">Expensive</option>
-            </select>
+      Music Type:
+      <input type="text" name="musicType" placeholder="Reggaeton" />
     </label>
 
     <label>
-        Location:
-        <input type="text" name="lat" placeholder="latitude">
-         <input type="text" name="lng" placeholder="length">
+      Image:
+      <input type="file" name="image" class="form-control-file" />
     </label>
 
     <label>
-        Review:
-        <input type="text" name="">
+      Price:
+      <select name="price">
+        <option value="Economic">Economic</option>
+        <option value="Normal">Normal</option>
+        <option value="Expensive">Expensive</option>
+      </select>
     </label>
 
     <label>
-        Website:
-        <input type="text" name="webSite">
+      Location:
+      <input type="text" name="lat" placeholder="latitude" />
+      <input type="text" name="lng" placeholder="length" />
     </label>
 
     <label>
-        Opening Time:
-        <input type="text" name="openingTime">
+      Review:
+      <input type="text" name="" />
     </label>
-    
+
     <label>
-        ClosingTime:
-        <input type="text" name="closingTime">
+      Website:
+      <input type="text" name="webSite" />
     </label>
 
-        <input type="submit">
+    <label>
+      Opening Time:
+      <input type="text" name="openingTime" />
+    </label>
 
+    <label>
+      ClosingTime:
+      <input type="text" name="closingTime" />
+    </label>
+
+    <input type="submit" />
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-    </form>
+  </form>
 
 </div>

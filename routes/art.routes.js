@@ -2,6 +2,8 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const Interest = require("../models/Interest.model");
 
+const { isAdmin, isOwner } = require("../utils");
+
 const fileUploader = require("../config/cloudinary.config");
 
 router.get("/all-arts", (req, res) => {
@@ -18,9 +20,21 @@ router.get("/create", (req, res) => {
 });
 
 router.post("/create", fileUploader.single("image"), (req, res) => {
-  const { name, description, creationDate, type, owner, capacity, location, review, webSite, openingTime, closingTime } =
-    req.body;
-  //console.log("Req body", req.body.image);
+  const {
+    name,
+    description,
+    creationDate,
+    price,
+    type,
+    owner,
+    capacity,
+    location,
+    review,
+    webSite,
+    openingTime,
+    closingTime,
+    image,
+  } = req.body;
 
   Interest.create({
     name,
@@ -30,6 +44,7 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
     owner,
     capacity,
     location,
+    price,
     review,
     webSite,
     openingTime,
@@ -44,8 +59,11 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
 
 router.get("/details/:id", (req, res) => {
   const { id } = req.params;
-
-  Interest.findById(id).then((art) => res.render("art/details", { art }));
+  console.log(req.session.currentUser);
+  user = req.session.currentUser;
+  Interest.findById(id).then((art) =>
+    res.render("art/details", { art, isAdmin: isAdmin(user), isOwner: isOwner(user._id, art) })
+  );
 });
 
 router.get("/edit/:id", (req, res) => {
@@ -60,22 +78,20 @@ router.get("/edit/:id", (req, res) => {
 
 router.post("/edit/:id", (req, res) => {
   const { id } = req.params;
-  const { name, description, creationDate, type, image, owner, capacity, location, review, webSite, openingTime, closingTime } =
-    req.body;
+  const { name, description, type, image, location, webSite, openingTime, closingTime, creationDate, owner } = req.body;
 
   Interest.findByIdAndUpdate(id, {
     name,
     description,
-    creationDate,
     type,
-    image,
-    owner,
-    capacity,
     location,
-    review,
+    price,
     webSite,
     openingTime,
     closingTime,
+    image,
+
+    caracteristics: { creationDate, owner },
   }).then(() => res.redirect("/arts/all-arts"));
 });
 

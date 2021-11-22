@@ -1,57 +1,71 @@
-// const router = require("express").Router();
-// const User = require("../models/User.model");
+const router = require("express").Router();
+const User = require("../models/User.model");
+const Interest = require("../models/Interest.model");
 
-// router.get("/all-ent", (req, res) => {
-//   Ent.find()
-//   .then((ents) => res.render("entertainment/all-ent", { ents }));
-// });
+const fileUploader = require("../config/cloudinary.config");
 
-// router.get("/create", (req, res) => {
-//   Ent.find().then((ents) => {
-//     res.render("entertainment/new-ent", { ents });
-//   });
-// });
+router.get("/all-ent", (req, res) => {
+  Interest.find({ $or: [{ type: "Disco" }, { type: "Pub" }, { type: "Outdoor" }] }).then((ents) =>
+    res.render("entertainment/all-ent", { ents })
+  );
+});
 
-// router.post("/create", (req, res) => {
-//   // res.json(req.body)
-//   const { name, type, music, musicType, price, review, location, webSite, openingTime, closingTime } = req.body;
+router.get("/create", (req, res) => {
+  Interest.find().then((ents) => {
+    res.render("entertainment/new-ent", { ents });
+  });
+});
 
-//   Ent.create({ name, type, music, musicType, price, review, location, webSite, openingTime, closingTime })
-//     .then(() => {
-//       res.redirect("/ent/all-ent");
-//     })
-//     .catch((err) => console.log(err));
-// });
+router.post("/create", fileUploader.single("image"), (req, res) => {
+  // res.json(req.body)
+  const { name, type, musicType, price, location, webSite, openingTime, closingTime, image } = req.body;
 
-// router.get("/details/:id", (req, res) => {
-//   const { id } = req.params;
+  Interest.create({ name, type, musicType, price, location, webSite, openingTime, closingTime, image: req.file.path })
+    .then(() => {
+      res.redirect("/ent/all-ent");
+    })
+    .catch((err) => console.log(err));
+});
 
-//   Ent.findById(id).then((ent) => res.render("entertainment/details", ent));
-// });
+router.get("/details/:id", (req, res) => {
+  const { id } = req.params;
 
-// router.get("/edit/:id", (req, res) => {
-//   const { id } = req.params;
+  Interest.findById(id).then((ent) => res.render("entertainment/details", { ent }));
+});
 
-//   Ent.findById(id)
-//     .then((editEnt) => {
-//       res.render("entertainment/edit", { editEnt });
-//     })
-//     .catch((err) => console.log(err));
-// });
+router.get("/edit/:id", (req, res) => {
+  const { id } = req.params;
 
-// router.post("/edit/:id", (req, res) => {
-//   const { id } = req.params;
-//   const { name, type, music, musicType, price, review, location, webSite, openingTime, closingTime } = req.body;
+  Interest.findById(id)
+    .then((editEnt) => {
+      res.render("entertainment/edit", { editEnt });
+    })
+    .catch((err) => console.log(err));
+});
 
-//   Ent.findByIdAndUpdate(id, { name, type, music, musicType, price, review, location, webSite, openingTime, closingTime }).then(
-//     () => res.redirect("/ent/all-ent")
-//   );
-// });
+router.post("/edit/:id", (req, res) => {
+  const { id } = req.params;
+  const { name, type, musicType, price, location, webSite, openingTime, closingTime } = req.body;
 
-// router.get("/:id/delete", (req, res) => {
-//   const { id } = req.params;
+  Interest.findByIdAndUpdate(id, {
+    name,
+    description,
+    type,
+    location,
+    price,
+    webSite,
+    openingTime,
+    closingTime,
+    image: req.file.path,
 
-//   Ent.findByIdAndRemove(id).then(() => res.redirect("/ent/all-ent"));
-// });
+    caracteristics: { musicType },
+  }).then(() => res.redirect("/ent/all-ent"));
+});
 
-// module.exports = router;
+router.get("/:id/delete", (req, res) => {
+  const { id } = req.params;
+
+  Interest.findByIdAndRemove(id).then(() => res.redirect("/ent/all-ent"));
+});
+
+module.exports = router;

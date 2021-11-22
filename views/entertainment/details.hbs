@@ -1,21 +1,23 @@
 <h1 class="ent-details">Details</h1>
 
 Name:
-{{name}}
-<br>
+{{ent.name}}
+<br />
 
 Type:
-{{type}}
-<br>
+{{ent.type}}
+<br />
 
 Music Type:
-{{musicType}}
-<br>
+{{ent.caracteristics.musicType}}
+<br />
 
 Price:
-{{price}}
-<br>
+{{ent.price}}
+<br />
+
+<img src="{{ent.image}}" />
 
 <a href="/ent/all-ent">Back</a>
-<a href="/ent/edit/{{id}}">Edit</a>
-<a href="/ent/{{id}}/delete">Delete</a>
+<a href="/ent/edit/{{ent.id}}">Edit</a>
+<a href="/ent/{{ent.id}}/delete">Delete</a>
