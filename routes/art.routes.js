@@ -21,6 +21,9 @@ router.get("/create", (req, res) => {
 });
 
 router.post("/create", fileUploader.single("image"), (req, res) => {
+
+
+
   const {
     name,
     description,
@@ -29,13 +32,19 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
     type,
     owner,
     capacity,
-    location,
+    lat,
+    lng,
     review,
     webSite,
     openingTime,
     closingTime,
     image,
   } = req.body;
+
+  let location = {
+    type: "Point",
+    coords: [lat, lng],
+  };
 
   Interest.create({
     name,
