@@ -7,16 +7,19 @@
       Name:
       <input type="text" name="name" />
     </label>
+    <br>
 
     <label>
       Description:
       <input type="text" name="description" />
     </label>
+    <br>
 
     <label>
       creationDate:
       <input type="date" name="date" />
     </label>
+    <br>
 
     <label>
       type:
@@ -26,42 +29,72 @@
         <option>Theater</option>
       </select>
     </label>
+    <br>
 
     <label>
       Image:
       <input type="file" name="image" class="form-control-file" />
     </label>
+    <br>
 
     <label>
       Owner:
       <input type="text" name="owner" />
     </label>
+    <br>
 
     <label>
       Capacity:
       <input type="text" name="capacity" />
     </label>
+    <br>
+
+    Location:
+    
+      <input type="text" id="address" class="address">
+      <button class="submit">enviar</button>
+    
+
+
+
+
+
+    <br>
+
+    <span class="latitudeTex">40.4206213320784</span>
+    <span class="longitudeTex">-3.706324171610527</span>
+    <div id="map"></div>
+
+
     <label>
       Location:
-      <input type="text" name="lat" />
-      <input type="text" name="lng" />
+      <input type="text" name="lat"  class=" latitudeText"/>
+      <input type="text" name="lng" class="longitudeText" />
     </label>
+
     <label>
       Review:
       <input type="text" name="" />
     </label>
+    <br>
+
     <label>
       Website:
       <input type="text" name="webSite" />
     </label>
+    <br>
+
     <label>
       Opening Time:
       <input type="text" name="openingTime" />
     </label>
+    <br>
+
     <label>
       ClosingTime:
       <input type="text" name="closingTime" />
     </label>
+    <br>
 
     <input type="submit" />
 
@@ -74,4 +107,9 @@
     <p class="error">{{errorMessage}}</p>
   {{/if}}
 
+
 </div>
+
+
+<script src="../../js/main.js"> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMap"></script>

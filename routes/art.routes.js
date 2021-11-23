@@ -63,7 +63,8 @@ router.get("/details/:id",isLoggedIn, (req, res) => {
   console.log(req.session.currentUser);
   user = req.session.currentUser;
   Interest.findById(id).then((art) =>
-    res.render("art/details", { art, isAdmin: isAdmin(user), isOwner: isOwner(user._id, art) })
+    {console.log(art)
+      res.render("art/details", { art, isAdmin: isAdmin(user), isOwner: isOwner(user._id, art) })}
   );
 });
 
