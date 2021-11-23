@@ -1,4 +1,4 @@
-<h1 class="art-details">Details</h1>
+<h1 class="gastronomy-details">Details</h1>
 
 Name:
 <h1 class="interestName">{{name}}</h1>
@@ -12,8 +12,8 @@ Type:
 
 <img src="{{image}}" />
 
-<span class="latitudeText">{{location.coords.[0]}}</span>
-<span class="longitudeText">{{location.coords.[1]}}</span>
+<span class="latitudeCenter">{{location.coords.[0]}}</span>
+<span class="longitudeCenter">{{location.coords.[1]}}</span>
 
 <div id="map"></div>
 
@@ -23,5 +23,6 @@ Type:
 
 
 
+
  <script src="../../js/main.js"> </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMap"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapDetails"></script>

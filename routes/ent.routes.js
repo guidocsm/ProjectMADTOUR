@@ -18,7 +18,12 @@ router.get("/create", (req, res) => {
 
 router.post("/create", fileUploader.single("image"), (req, res) => {
   // res.json(req.body)
-  const { name, type, musicType, price, location, webSite, openingTime, closingTime, image } = req.body;
+  const { name, type, musicType, price, lat,lng , webSite, openingTime, closingTime, image } = req.body;
+
+   let location = {
+     type: "Point",
+     coords: [lat, lng],
+   };
 
   Interest.create({ name, type, musicType, price, location, webSite, openingTime, closingTime, image: req.file.path })
     .then(() => {
@@ -43,13 +48,17 @@ router.get("/edit/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/edit/:id", (req, res) => {
+router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
   const { id } = req.params;
-  const { name, type, musicType, price, location, webSite, openingTime, closingTime } = req.body;
+  const { name, type, musicType, price, lat, lng, webSite, openingTime, closingTime, image } = req.body;
+
+    let location = {
+      type: "Point",
+      coords: [lat, lng],
+    };
 
   Interest.findByIdAndUpdate(id, {
     name,
-    description,
     type,
     location,
     price,

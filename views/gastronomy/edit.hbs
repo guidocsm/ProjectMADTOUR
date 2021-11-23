@@ -1,7 +1,7 @@
 <h1>Edit your Place</h1>
 <div>
 
-  <form action="/gastronomy/edit/{{editGastronomy.id}}" method="POST">
+  <form action="/gastronomy/edit/{{editGastronomy.id}}" method="POST" enctype="multipart/form-data">
 
     <label>
       Name:
@@ -22,7 +22,12 @@
     </label>
 
     <label>
-      price:
+      Image:
+      <input type="file" name="image" class="form-control-file" />
+    </label
+
+    <label>
+      Price:
       <select name="price">
         <option>Economic</option>
         <option>Normal</option>
@@ -34,11 +39,21 @@
       Food:
       <input type="text" name="food" />
     </label>
+ <input type="text" id="address" class="address">
+      <button class="submit">enviar</button>
+        <br>
 
-    <label>
+
+    <span class="latitudeCenter">40.4206213320784</span>
+    <span class="longitudeCenter">-3.706324171610527</span>
+
+
+    <div id="map"></div>
+    
+     <label class="labelLocation">
       Location:
-      <input type="text" name="lat" />
-      <input type="text" name="lng" />
+      <input type="text" name="lat" class="latitudeText" />
+      <input type="text" name="lng" class="longitudeText" />
     </label>
 
     <label>
@@ -67,3 +82,6 @@
     {{/if}}
   </form>
 </div>
+
+  <script src="../../js/main.js"> </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapEdit"></script>

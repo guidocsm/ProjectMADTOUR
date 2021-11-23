@@ -1,7 +1,7 @@
 <h1>Edit</h1>
 <div>
 
-    <form action="/arts/edit/{{editArt.id}}" method="POST">
+    <form action="/arts/edit/{{editArt.id}}" method="POST" enctype="multipart/form-data">
 
     <label>
         Name:
@@ -10,7 +10,7 @@
 
     <label>
         Description:
-        <input type="text" name="description">
+        <input type="text" name="description"value="{{editArt.description}}" >
     </label>
 
     <label>
@@ -27,9 +27,11 @@
             </select>
     </label>
 
-    <label>
-        Image:
-        <input type="text" name="image">
+    
+   <label>
+      Image:
+
+      <input type="file" name="image" class="form-control-file" value="{{editArt.image}}" />
     </label>
 
 
@@ -42,11 +44,23 @@
         Capacity:
         <input type="text" name="capacity">
     </label>
-        <label>
-        Location:
-        <input type="text" name="lat">
-         <input type="text" name="lng">
+         Location:
+    
+      <input type="text" id="address" class="address">
+      <button class="submit">enviar</button>
+        <br>
+
+    <span class="latitudeCenter">40.4206213320784</span>
+    <span class="longitudeCenter">-3.706324171610527</span>
+    <div id="map"></div>
+
+
+    <label class="labelLocation">
+      Location:
+      <input type="text" name="lat"  class="latitudeText" value="{{editArt.location.coords.[0]}}"/>
+      <input type="text" name="lng" class="longitudeText"value="{{editArt.location.coords.[1]}}" />
     </label>
+
         <label>
         Review:
         <input type="text" name="">
@@ -74,3 +88,5 @@
 
 </div>
 
+  <script src="../../js/main.js"> </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapDetails"></script>

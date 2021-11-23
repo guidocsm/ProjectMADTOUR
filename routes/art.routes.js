@@ -22,6 +22,7 @@ router.get("/create", (req, res) => {
 
 router.post("/create", fileUploader.single("image"), (req, res) => {
 
+let image ;
 
 
   const {
@@ -38,10 +39,10 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
     webSite,
     openingTime,
     closingTime,
-    image,
+    
   } = req.body;
 
-  let location = {
+  let location = { 
     type: "Point",
     coords: [lat, lng],
   };
@@ -59,7 +60,7 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
     webSite,
     openingTime,
     closingTime,
-    image: req.file.path,
+    image: req.file.path
   })
     .then(() => {
       res.redirect("/arts/all-arts");
@@ -87,9 +88,14 @@ router.get("/edit/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/edit/:id", (req, res) => {
+router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
   const { id } = req.params;
-  const { name, description, type, image, location, webSite, openingTime, closingTime, creationDate, owner } = req.body;
+  const { name, description, type, lat, lng, webSite, openingTime, closingTime, creationDate, owner, price } = req.body;
+
+    let location = {
+      type: "Point",
+      coords: [lat, lng],
+    };
 
   Interest.findByIdAndUpdate(id, {
     name,
@@ -100,7 +106,7 @@ router.post("/edit/:id", (req, res) => {
     webSite,
     openingTime,
     closingTime,
-    image,
+    image: req.file.path ,
 
     caracteristics: { creationDate, owner },
   }).then(() => res.redirect("/arts/all-arts"));

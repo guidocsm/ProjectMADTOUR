@@ -1,6 +1,6 @@
 <h1>New Gastronomy</h1>
 <div>
-  <h2 class="new-art">New Movie</h2>
+ 
   <form action="/gastronomy/create" method="POST" enctype="multipart/form-data">
     <label>
       Name:
@@ -15,6 +15,7 @@
     </label>
     <label>
       Description:
+
       <input type="text" name="description" />
     </label>
     <label>
@@ -33,10 +34,22 @@
       Image:
       <input type="file" name="image" class="form-control-file" />
     </label>
-    <label>
+
+       <input type="text" id="address" class="address">
+      <button class="submit">enviar</button>
+        <br>
+
+
+    <span class="latitudeCenter">40.4206213320784</span>
+    <span class="longitudeCenter">-3.706324171610527</span>
+
+
+    <div id="map"></div>
+
+     <label class="labelLocation">
       Location:
-      <input type="text" name="lat" />
-      <input type="text" name="lng" />
+      <input type="text" name="lat" class="latitudeText" />
+      <input type="text" name="lng" class="longitudeText" />
     </label>
     <label>
       Review:
@@ -60,3 +73,7 @@
     {{/if}}
   </form>
 </div>
+
+
+<script src="../../js/main.js"> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapNew"></script>
