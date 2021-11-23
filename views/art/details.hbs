@@ -1,7 +1,7 @@
 <h1 class="art-details">Details</h1>
 
 Name:
-{{art.name}}
+<h1 class="interestName">{{art.name}}</h1>
 <br />
 
 Type:
@@ -16,6 +16,13 @@ Description:
 {{art.description}}
 <br />
 <img src="{{art.image}}" />
+
+Location:
+
+<span class="latitudeText">{{art.location.coords.[0]}}</span>
+<span class="longitudeText">{{art.location.coords.[1]}}</span>
+
+<div id="map"></div>
 
 {{#if isAdmin}}
 
@@ -34,3 +41,6 @@ Description:
   <a href="/arts/{{art.id}}/delete">Delete</a>
 
 {{/if}}
+
+  <script src="../../js/main.js"> </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMap"></script>

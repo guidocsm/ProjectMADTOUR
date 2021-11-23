@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const Interest = require("../models/Interest.model");
+const { isLoggedIn } = require("../middlewares")
 
 const { isAdmin, isOwner } = require("../utils");
 
@@ -57,7 +58,7 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/details/:id", (req, res) => {
+router.get("/details/:id",isLoggedIn, (req, res) => {
   const { id } = req.params;
   console.log(req.session.currentUser);
   user = req.session.currentUser;

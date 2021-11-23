@@ -173,3 +173,8 @@ h1 {
 .card {
   margin: 20px;
 }
+
+#map {
+  width: 500px;
+  height: 500px;
+}
