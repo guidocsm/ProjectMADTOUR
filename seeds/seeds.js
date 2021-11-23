@@ -59,7 +59,7 @@ const interest_json = [
     type: "Monument",
     image: "https://imgs-akamai.mnstatic.com/85/93/8593f28dd7f0bca602eb336c05305cc3.jpg",
     location: {
-      coords: ["40.42012266712455", -"3.6887262731374246"],
+      coords: ["40.42012266712455", "-3.6887262731374246"],
     },
     //review: { type: Schema.Types.ObjectId, ref: "Review" },
     openingTime: "24h",
@@ -123,7 +123,7 @@ const interest_json = [
     price: "Normal",
     food: "Japonesa, Sushi",
     location: {
-      coordinates: ["40.42271129138648", "-3.6943453018021866"],
+      coords: ["40.42271129138648", "-3.6943453018021866"],
     },
     // review: { type: Schema.Types.ObjectId, ref: "Review" },
     webSite: "https://lacarlotamadrid.es/carta-lacarlotarestaurante/",
@@ -137,7 +137,7 @@ const interest_json = [
     price: "Normal",
     food: "Americana, cerveza artesanal",
     location: {
-      coordinates: ["40.41494446344406", "-3.7047709748146804"],
+      coords: ["40.41494446344406", "-3.7047709748146804"],
     },
     // review: { type: Schema.Types.ObjectId, ref: "Review" },
     webSite: "https://www.tripadvisor.es/Restaurant_Review-g187514-d20204382-Reviews-Taberna_el_pirata_ll-Madrid.html",
@@ -151,7 +151,7 @@ const interest_json = [
     price: "Normal",
     food: "Americana, opciones vegetarianas",
     location: {
-      coordinates: ["40.43771787844112", "-3.6875880387515205"],
+      coords: ["40.43771787844112", "-3.6875880387515205"],
     },
     // review: { type: Schema.Types.ObjectId, ref: "Review" },
     webSite: "https://alright.es/",
@@ -165,7 +165,7 @@ const interest_json = [
     price: "Expensive",
     food: "Gourmet",
     location: {
-      coordinates: ["40.45852234141739", "-3.6858077000000034"],
+      coords: ["40.45852234141739", "-3.6858077000000034"],
     },
     // review: { type: Schema.Types.ObjectId, ref: "Review" },
     webSite: "https://diverxo.com/",

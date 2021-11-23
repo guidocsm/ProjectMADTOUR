@@ -1,17 +1,27 @@
 <h1 class="art-details">Details</h1>
 
 Name:
-{{name}}
+<h1 class="interestName">{{name}}</h1>
 <br />
 
 Type:
 {{type}}
 <br />
 
-Description:
-{{description}}
-<br />
+
+
 <img src="{{image}}" />
+
+<span class="latitudeText">{{location.coords.[0]}}</span>
+<span class="longitudeText">{{location.coords.[1]}}</span>
+
+<div id="map"></div>
 
 <a href="/gastronomy/edit/{{id}}">Edit</a>
 <a href="/gastronomy/{{id}}/delete">Delete</a>
+
+
+
+
+ <script src="../../js/main.js"> </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMap"></script>

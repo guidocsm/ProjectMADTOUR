@@ -37,7 +37,9 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
 
 router.get("/details/:id", (req, res) => {
   const { id } = req.params;
-  Interest.findById(id).then((gast) => res.render("gastronomy/details", gast));
+  Interest.findById(id).then((gast) => {
+    console.log(gast)
+        res.render("gastronomy/details", gast)});
 });
 
 router.get("/edit/:id", (req, res) => {

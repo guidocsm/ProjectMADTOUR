@@ -1,7 +1,7 @@
 <h1 class="ent-details">Details</h1>
 
 Name:
-{{ent.name}}
+<h1 class="interestName">{{ent.name}}</h1
 <br />
 
 Type:
@@ -17,7 +17,17 @@ Price:
 <br />
 
 <img src="{{ent.image}}" />
+<br>
+
+Location:
+<span class="latitudeText">{{ent.location.coords.[0]}}</span>
+<span class="longitudeText">{{ent.location.coords.[1]}}</span>
+
+<div id="map"></div>
 
 <a href="/ent/all-ent">Back</a>
 <a href="/ent/edit/{{ent.id}}">Edit</a>
 <a href="/ent/{{ent.id}}/delete">Delete</a>
+
+<script src="../../js/main.js"> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMap"></script>

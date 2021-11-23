@@ -85,6 +85,12 @@ h1 {
   width: 90vw;
 }
 
+.card-body{
+      display: flex !important;
+    flex-direction: column !important;
+    
+    align-items: center !important;
+}
 .card-main {
   background: #287bff;
   display: flex;
