@@ -1,9 +1,20 @@
 <h1>Entertainment</h1>
-
-{{#each ents}}
-    <a href="/ent/details/{{id}}"><h3>{{name}}</h3></a>
-{{/each}}
-
 <a href="/ent/create">Create new</a>
-<br>
 <a href="/">Back to main menu</a>
+
+<div class="container container-all">
+    
+{{#each ents}}
+    
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{image}}" alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text"><strong>Precio: </strong>{{price}}</p>
+        <a href="/ent/details/{{id}}" class="btn btn-dark">Details</a>
+      </div>
+    </div>
+{{/each}}
+</div>
+

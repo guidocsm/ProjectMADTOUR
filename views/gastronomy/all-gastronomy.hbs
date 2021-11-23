@@ -1,9 +1,21 @@
 <h1 class="all-gastronomy">Gastronomy</h1>
+<a href="/">Back to main menu</a>
+<a href="/gastronomy/create">Create new</a>
 
+
+
+<div class="container container-all">
 {{#each gasts}}
-  <a href="/gastronomy/details/{{id}}"><h3>{{name}}</h3></a>
+  <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{image}}" alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title"> {{name}}</h5>
+        <p class="card-text"><strong>Precio</strong>: {{price}}</p>
+        <a href="/ent/details/{{id}}" class="btn btn-dark">Details</a>
+      </div>
+    </div>
 {{/each}}
 
-<a href="/gastronomy/create">Create new</a>
-<br>
-<a href="/">Back to main menu</a>
+
+
+</div>

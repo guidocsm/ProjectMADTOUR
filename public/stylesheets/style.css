@@ -192,3 +192,121 @@ h1 {
   display: block;
 }
 
+.title-profile{
+  font-family: Poppins;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.container-profile{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.content-profile{
+  display: flex;
+ 
+  width: 900px;
+ 
+  
+}
+.profileElem{
+  height: 230px;
+  width: 330px;
+  border-radius: 100%;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  transition: transform 2s ease-in-out;
+}
+.profileElem:hover{
+ transform: rotate(360deg);
+}
+
+
+.arts-content{
+  background-image: url("../images/Museo-del-Prado_Madrid.jpg");
+}
+
+.gastronomy-content{
+  background-image: url("../images/JI-Carne-Cruda-Asada.jpg.jpg");
+}
+
+.ent-content{
+  background-image: url("../images/discoteca-3.jpg");
+}
+
+.profileElem a{
+  text-decoration: none;
+  font-family: Poppins;
+  font-size: 1.4rem;
+  color: white
+}
+
+.favplaces{
+  color: #e40e07;
+}
+
+
+.profileElem a:hover{
+  transform: scale(1.25);
+  text-decoration: none;
+  font-family: Poppins;
+  font-size: 1.3rem;
+  color: white
+}
+
+.container-weather{
+  height: 50vh;
+  display: flex;
+  margin-left: 2rem;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.weather-content{
+  font-size: 1.8rem;
+  height: 300px;
+  width: 300px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 2px black;
+}
+.temperature{
+  font-size: 3rem;
+}
+
+.sky{
+  font-size: 1.5rem;
+}
+
+.weather-attrs{
+  font-family: Poppins;
+ 
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+.clouds{
+  background-image: url("../images/nubes.jpg");
+  background-position: center;
+}
+
+.clear{
+  background-image: url("../images/sun.jpg");
+  background-position: center;
+}
+.rain{
+  background-image: url("../images/lluvia.jpg");
+  background-position: center;
+}
