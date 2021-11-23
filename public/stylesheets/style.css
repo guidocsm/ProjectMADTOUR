@@ -7,6 +7,11 @@ a {
   font-family: "Poppins";
 }
 
+img {
+  width: 200px;
+  height: 150px;
+}
+
 h1 {
   color: 15px;
 }
@@ -80,7 +85,7 @@ h1 {
   width: 90vw;
 }
 
-.card {
+.card-main {
   background: #287bff;
   display: flex;
   justify-content: center;
@@ -95,7 +100,7 @@ h1 {
   font-family: Poppins;
 }
 
-.card::before {
+.card-main::before {
   content: "";
   position: absolute;
   top: -140px;
@@ -109,7 +114,7 @@ h1 {
   filter: blur(5px);
 }
 
-.card:nth-child(1) {
+.card-main:nth-child(1) {
   background-image: url("../images/Museo-del-Prado_Madrid.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -117,7 +122,7 @@ h1 {
   border-radius: 20px 20px 78px 65px / 14px 20px 39px 40px;
 }
 
-.card:nth-child(2) {
+.card-main:nth-child(2) {
   background: linear-gradient(to bottom, #e40e07, #f321d7);
 
   background-image: url("../images/JI-Carne-Cruda-Asada.jpg.jpg");
@@ -127,7 +132,7 @@ h1 {
   border-radius: 20px 20px 78px 65px / 14px 20px 39px 40px;
 }
 
-.card:nth-child(3) {
+.card-main:nth-child(3) {
   background: linear-gradient(to bottom, #24ff72, #9a4eff);
   background-image: url("..//images/discoteca-3.jpg");
   background-position: bottom;
@@ -136,7 +141,7 @@ h1 {
   border-radius: 20px 20px 78px 65px / 14px 20px 39px 40px;
 }
 
-.card .content {
+.card-main .content {
   position: absolute;
   width: 100%;
   padding: 30px;
@@ -145,17 +150,26 @@ h1 {
   border-radius: 20px;
 }
 
-.card .content:hover {
+.card-main .content:hover {
   transform: scale(1.05);
 }
 
-.card .content h2 {
+.card-main .content h2 {
   font-size: 1.8em;
   color: #fff;
   margin-bottom: 15px;
 }
 
-.card .content p {
+.card-main .content p {
   color: #fff;
   line-height: 1.5em;
+}
+
+.container-all {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 20px;
 }
