@@ -8,7 +8,7 @@ let minTemp = document.querySelector(".minTemp");
 let humidity = document.querySelector(".humidity")
 let feelLike = document.querySelector(".feelLike")
 let weatherDiv = document.querySelector(".weather-content");
-
+let dayAdvice = document.querySelector(".dayAdvice");
 
 
 getData = () => this.axios.get(API1)
@@ -40,5 +40,21 @@ getData()
         )
 
 
+let dayCounter = 0;
 
-  
+
+
+setInterval(()=>{
+    if(dayCounter == 10){dayCounter = 0}
+    else   { dayCounter++}
+getDataAdvice(dayCounter);
+}, 86400)
+
+
+
+getDataAdvice = (dayCounter) => this.axios.get("https://api.adviceslip.com/advice/search/all").then((response) => {
+dayAdvice.innerHTML = response.data.slips[dayCounter].advice;
+console.log(response.data.slips[dayCounter].advice)});
+
+getDataAdvice(0);
+        

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const Interest = require("../models/Interest.model");
 const Review = require("../models/Review.model");
-const { isAdmin, isOwner } = require("../utils");
+const { isAdmin, isOwner , formatDate} = require("../utils");
 const fileUploader = require("../config/cloudinary.config");
 
 
@@ -53,8 +53,12 @@ router.get("/details/:id", (req, res) => {
     Review.find({ ref: gastronomy.id })
       .populate("creator")
       .populate("ref")
+      .lean()
       .then((reviews) => {
-        console.log(gastronomy);
+        reviews.forEach((review) => {
+          if (review.date) review.formatDate = formatDate(review);
+        });
+        console.log(reviews);
         res.render("gastronomy/details", { gastronomy, reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, gastronomy) });
       });
   });

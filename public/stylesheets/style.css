@@ -264,14 +264,16 @@ h1 {
 }
 .container-red{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   background-color: #dc143c;
+  height: 90vh;
 }
 .container-weather{
   
   text-align: left;
-  margin-top: 5rem;
-  height: 70vh;
+  
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -281,7 +283,7 @@ h1 {
 }
 
 .title-weather{
-  margin-left: 10px;
+  margin: 3rem 0;
   font-family: Poppins;
 }
 .weather-content{
@@ -324,4 +326,46 @@ h1 {
 .rain{
   background-image: url("../images/lluvia.jpg");
   background-position: center;
+}
+
+.logoMAD{
+  height: 550px;
+  width: auto;
+      position: absolute;
+    right: -1000
+  
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.card-weather {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-advice {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.quoteDay{
+  background-image: url("../images/tipos-rocas-social.jpg");
+  color: white;
+  font-family: Poppins;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

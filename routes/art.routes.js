@@ -5,7 +5,7 @@ const Review = require("../models/Review.model");
 
 const { isLoggedIn } = require("../middlewares")
 
-const { isAdmin, isOwner } = require("../utils");
+const { isAdmin, isOwner, formatDate } = require("../utils");
 
 const fileUploader = require("../config/cloudinary.config");
 
@@ -29,11 +29,8 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
   const {
     name,
     description,
-    creationDate,
     price,
     type,
-    owner,
-    capacity,
     lat,
     lng,
     review,
@@ -51,11 +48,8 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
   Interest.create({
     name,
     description,
-    creationDate,
-    type,
-    owner,
-    capacity,
-    location,
+     type,
+     location,
     price,
     review,
     webSite,
@@ -79,9 +73,11 @@ router.get("/details/:id",isLoggedIn, (req, res) => {
       Review.find({ ref: art.id })
       .populate("creator")
       .populate("ref")
+      .lean()
       .then((reviews) => {
-        console.log(reviews)
-        res.render("art/details", { art,reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, art) })}
+          reviews.forEach(review => {if (review.date) review.formatDate = formatDate(review)})
+          console.log(reviews)
+          res.render("art/details", { art, reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, art) })}
   );
 });
 });

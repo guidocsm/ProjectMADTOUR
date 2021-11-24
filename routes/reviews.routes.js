@@ -4,7 +4,7 @@ const Interest = require("../models/Interest.model");
 const { isLoggedIn } = require("../middlewares");
 const Review = require("../models/Review.model");
 
-const { isAdmin, isOwner } = require("../utils");
+const { formatDate, isAdmin, isOwner } = require("../utils");
 
 
 
@@ -26,34 +26,34 @@ router.post("/create/:id", (req, res) => {
     const {comment} = req.body
 
     Review.create({ creator, ref, comment }) 
-           .then((review) => { res.redirect(`/arts/details/${ref}`)})
+           .then((review) => { 
+            
+            res.redirect(`/arts/details/${ref}`)})
            .catch((err) => console.log(err));
 })
 
 
-router.get("/delete/:id/:artId", (req, res) => {
-  const { id, artId } = req.params;
+router.get("/delete/:id/:interestId", (req, res) => {
+  const { id, interestId } = req.params;
 
-  Review.findByIdAndRemove(id).then(() => res.redirect(`/arts/details/${artId}`));
+  Review.findByIdAndRemove(id).then(() =>{ 
+    Interest.findById(interestId)
+    .then(interest => {
+      if(interest.type == "Restaurant" || interest.type == "Bar" ){
+         res.redirect(`/gastronomy/details/${interestId}`);
+      } else if(interest.type == "Museum" || interest.type == "Theater" || interest.type == "Monument" ){
+        res.redirect(`/arts/details/${interestId}`);
+      } else if(interest.type == "Disco" || interest.type == "Pub" || interest.type == "Outdoor" ){
+        res.redirect(`/ent/details/${interestId}`);
+      }
+      
+      
+
+    })
+    
+    
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 module.exports = router;

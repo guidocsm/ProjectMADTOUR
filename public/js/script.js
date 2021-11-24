@@ -1,12 +1,12 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    // var titleParallax = document.querySelector(".title-parallax");
-    // var titleParallax2 = document.querySelector(".title-parallax2");
+   
+    var phoneLogo = document.querySelector(".logoMAD");
     window.addEventListener("scroll", function () {
-      // var value = window.scrollY;
-      // titleParallax.style.left = value * 0.85;
-      // titleParallax2.style.right = value * 0.85;
+      var value = window.scrollY;
+      phoneLogo.style.right = value * 0.65;
+     
     });
 
     console.log("ProjectMADTOUR JS imported successfully!");

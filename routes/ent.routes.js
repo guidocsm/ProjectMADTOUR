@@ -5,7 +5,7 @@ const Review = require("../models/Review.model");
 
 const fileUploader = require("../config/cloudinary.config");
 
-const { isAdmin, isOwner } = require("../utils");
+const { isAdmin, isOwner , formatDate} = require("../utils");
 
 router.get("/all-ent", (req, res) => {
   Interest.find({ $or: [{ type: "Disco" }, { type: "Pub" }, { type: "Outdoor" }] }).then((ents) =>
@@ -46,7 +46,11 @@ router.get("/details/:id", (req, res) => {
      Review.find({ ref: ent.id })
        .populate("creator")
        .populate("ref")
+       .lean()
        .then((reviews) => {
+         reviews.forEach((review) => {
+           if (review.date) review.formatDate = formatDate(review);
+         });
          console.log(reviews);
          res.render("entertainment/details", { ent, reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, ent) });
        });

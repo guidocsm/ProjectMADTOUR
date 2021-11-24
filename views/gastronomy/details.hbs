@@ -23,10 +23,13 @@ Type of Food:
 {{#each reviews}}
 <h1>{{creator.username}}</h1>
 <p>{{comment}}</p>
-<span>{{createdAt}}</span>
+
+
+
+<span>{{formatDate}}</span>
 
 {{#if ../isAdmin}}
-  <a href="/reviews/delete/{{id}}/{{../gastronomy.id}}">Delete</a>
+  <a href="/reviews/delete/{{_id}}/{{../gastronomy.id}}">Delete</a>
 {{/if}}
 
 {{/each}}

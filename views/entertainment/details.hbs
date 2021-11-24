@@ -27,11 +27,13 @@ Location:
 
 {{#each reviews}}
 <h1>{{creator.username}}</h1>
+
 <p>{{comment}}</p>
-<span>{{createdAt}}</span>
+<span>{{formatDate}}</span>
+
 
 {{#if ../isAdmin}}
-  <a href="/reviews/delete/{{id}}/{{../ent.id}}">Delete</a>
+  <a href="/reviews/delete/{{_id}}/{{../ent.id}}">Delete</a>
 {{/if}}
 
 {{/each}}

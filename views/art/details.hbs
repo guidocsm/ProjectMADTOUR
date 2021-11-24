@@ -8,10 +8,6 @@ Type:
 {{art.type}}
 <br />
 
-Creation Date:
-{{art.creationDate}}
-<br />
-
 Description:
 {{art.description}}
 <br />
@@ -22,10 +18,13 @@ Description:
 
 <h1>{{creator.username}}</h1>
 <p>{{comment}}</p>
-<span>{{createdAt}}</span>
+
+
+<span>{{formatDate}}</span>
+
 
 {{#if ../isAdmin}}
-  <a href="/reviews/delete/{{id}}/{{../art.id}}">Delete</a>
+  <a href="/reviews/delete/{{_id}}/{{../art.id}}">Delete</a>
 {{/if}}
 
 {{/each}}
