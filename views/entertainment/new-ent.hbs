@@ -8,6 +8,7 @@
       <input type="text" name="name" />
     </label>
 
+
     <label>
       Type:
       <select name="type">
@@ -17,15 +18,18 @@
       </select>
     </label>
 
+
     <label>
       Music Type:
       <input type="text" name="musicType" placeholder="Reggaeton" />
     </label>
 
+
     <label>
       Image:
       <input type="file" name="image" class="form-control-file" />
     </label>
+
 
     <label>
       Price:
@@ -36,6 +40,7 @@
       </select>
     </label>
 
+
     Location:
       <input type="text" id="address" class="address">
       <button class="submit">Send</button>
@@ -45,35 +50,40 @@
     <div id="map"></div>
    
 
-
-      
       <label class="labelLocation">
         Location:
       <input type="text" name="lat" class="latitudeText" />
       <input type="text" name="lng" class="longitudeText" />
     </label>
-  <div id="map"></div>
-    <label>
-      Review:
-      <input type="text" name="" />
-    </label>
+
+
+    <div id="map"></div>
+      <label>
+        Review:
+        <input type="text" name="" />
+      </label>
+
 
     <label>
       Website:
       <input type="text" name="webSite" />
     </label>
 
+
     <label>
       Opening Time:
       <input type="text" name="openingTime" />
     </label>
+
 
     <label>
       ClosingTime:
       <input type="text" name="closingTime" />
     </label>
 
+
     <input type="submit" />
+    
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>

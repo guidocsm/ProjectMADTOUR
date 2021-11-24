@@ -30,13 +30,6 @@ console.log("Init map")
   return marker;
 }
 
-// const geocoder = new google.maps.Geocoder();
- 
-// document.querySelector('.submit').addEventListener('click', function (e) {
-//   e.preventDefault()
-//   console.log("algo")
-//   geocodeAddress(geocoder, map);
-// });
  
 function geocodeAddress(geocoder, map) {
   let address = document.querySelector('.address').value;
