@@ -1,56 +1,12 @@
-<h1 class="art-details">Details</h1>
 
-Name:
-<h1 class="interestName">{{art.name}}</h1>
-<br />
+<div class="container container-details">
 
-Type:
-{{art.type}}
-<br />
-
-Description:
-{{art.description}}
-<br />
-<img src="{{art.image}}" />
-
-
-{{#each reviews}}
-
-<h1>{{creator.username}}</h1>
-<p>{{comment}}</p>
-
-
-<span>{{formatDate}}</span>
-
-
-{{#if ../isAdmin}}
-  <a href="/reviews/delete/{{_id}}/{{../art.id}}">Delete</a>
-{{/if}}
-
-{{/each}}
-
-
-
-
-
-
-<span class="latitudeCenter">{{art.location.coords.[0]}}</span>
-<span class="longitudeCenter">{{art.location.coords.[1]}}</span>
-
-<div id="map"></div>
-
-<form method="POST" action="/reviews/create/{{art.id}}">
-  Write a review
-  <input name="comment" type="textarea">
-  <input type="submit">
-</form>
-
-
+<h1 class="details.title">Details</h1>
 {{#if isAdmin}}
 
   <a href="/arts/edit/{{art.id}}">Edit</a>
   <br />
-<a href="/reviews/create/{{art.id}}">Nueva review</a>
+{{!-- <a href="/reviews/create/{{art.id}}">Nueva review</a> --}}
   <a href="/arts/{{art.id}}/delete">Delete</a>
 
 {{/if}}
@@ -65,8 +21,69 @@ Description:
     <a href="/reviews/{{ent.id}}/delete">Delete</a>
 
 {{/if}}
+<br><br>
+Name:
+<strong class="interestName">{{art.name}}</strong>
+<br />
+{{art.type}}
+<br />
+
+Description:
+{{art.description}}
+<br />
+
+<div class="content-details">
+  <div class="div-details">
+
+<img src="{{art.image}}" />
+
+  </div>
+  <div class="div-details">
+<div id="map"></div>
+  </div>
+</div>
 
 
 
+
+<form method="POST" action="/reviews/create/{{art.id}}">
+  
+  <br>
+  <input name="comment" type="textarea" rows="4" cols="50">  
+  <input type="submit">
+</form>
+
+<div class="review-card">
+
+{{#each reviews}}
+
+<strong>{{creator.username}}</strong>
+<p>{{comment}}</p>
+<span>{{formatDate}}</span>
+
+
+{{#if ../isAdmin}}
+  <a href="/reviews/delete/{{_id}}/{{../art.id}}">Delete</a>
+{{/if}}
+
+{{/each}}
+</div>
+
+
+
+
+
+<span class="latitudeCenter">{{art.location.coords.[0]}}</span>
+<span class="longitudeCenter">{{art.location.coords.[1]}}</span>
+
+
+
+
+
+
+
+
+
+</div>
   <script src="../../js/main.js"> </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapDetails"></script>

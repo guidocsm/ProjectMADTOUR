@@ -1,5 +1,6 @@
 body {
   font-family: "Poppins";
+  background-color: #DC143C;
 }
 
 a {
@@ -8,8 +9,8 @@ a {
 }
 
 img {
-  width: 200px;
-  height: 150px;
+  width: 300px;
+  height: 220px;
 }
 
 h1 {
@@ -51,7 +52,7 @@ h1 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 30vh;
+  height: 20vh;
   font-family: Poppins;
   font-size: 1.2rem;
 }
@@ -80,13 +81,14 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 10px;
-  min-height: 50vh;
-  width: 90vw;
+  padding: 50px 0;
+
+  height: 80vh;
 }
 
 .card-body{
       display: flex !important;
+      text-align: center;
     flex-direction: column !important;
     
     align-items: center !important;
@@ -181,8 +183,8 @@ h1 {
 }
 
 #map {
-  width: 500px;
-  height: 500px;
+  width: 500;
+  height: 400px;
 }
 
 .latitudeCenter,
@@ -201,7 +203,7 @@ h1 {
 }
 
 .container-profile{
-  height: 50vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -273,7 +275,7 @@ h1 {
   
   text-align: left;
   
-  height: 50vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -336,11 +338,13 @@ h1 {
   
 }
 
-.row{
+.row-index{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+ margin-top: 4rem;
+  height: 90vh;
+  margin-top: 3rem;
 }
 
 .card-weather {
@@ -368,4 +372,92 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.profile-about{
+  height: 80vh;
+  
+}
+.footer{
+  height: 100vh;
+}
+.about-title{
+  text-align: center;
+  font-family: Poppins;
+  margin-bottom: 5rem;
+}
+
+.col.about-monument{
+  font-family: Poppins;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.info-about{
+  font-size: 1.5rem;
+  width: 70%;
+  text-align: center;
+}
+
+.parallaxRestaurant{
+  position: absolute;
+  font-family: Poppins;
+  top: 80%;
+  left: -200px;
+  font-size: 2rem;
+}
+
+.parallaxMonument{
+  position: absolute;
+  font-family: Poppins;
+  top: 90%;
+  right: -200px;
+  font-size: 2rem;
+}
+
+.parallaxMuseum{
+  position: absolute;
+  font-family: Poppins;
+  top: 120%;
+  left: -200px;
+  font-size: 2rem;
+  z-index: -1
+}
+
+.parallaxClub{
+  position: absolute;
+  font-family: Poppins;
+  top: 130%;
+  right: -200px;
+  font-size: 2rem;
+  z-index: -1
+}
+
+.container-details{
+  font-family: Poppins;
+  padding: 2rem 0;
+}
+
+.content-details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.content-details .div-details{
+  margin: 0 2rem;
+}
+
+.content-details img{
+  height: 400px;
+  width: auto;
+}
+
+.review-card{
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 15px;
 }

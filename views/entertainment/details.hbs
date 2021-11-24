@@ -1,32 +1,47 @@
+<div class="container container-details">
+
+
 <h1 class="ent-details">Details</h1>
 
 Name:
-<h1 class="interestName">{{ent.name}}</h1
+<strong class="details.title">{{ent.name}}</strong>
 <br />
-
-Type:
-{{ent.type}}
+Type of place:
+<strong>{{ent.type}}</strong>
 <br />
 
 Music Type:
-{{ent.caracteristics.musicType}}
+<strong> {{ent.caracteristics.musicType}}</strong>
+
 <br />
 
 Price:
-{{ent.price}}
+<strong>  
+{{ent.price}}</strong>
 <br />
 
-<img src="{{ent.image}}" />
-<br>
+<div class="content-details">
+  <div class="div-details">
 
-Location:
+<img src="{{ent.image}}" />
+
+  </div>
+  <div class="div-details">
+<div id="map"></div>
+  </div>
+</div>
+
+
+
+
 <span class="latitudeCenter">{{ent.location.coords.[0]}}</span>
 <span class="longitudeCenter">{{ent.location.coords.[1]}}</span>
 
-<div id="map"></div>
+
+<div class="review-card">
 
 {{#each reviews}}
-<h1>{{creator.username}}</h1>
+<strong>{{creator.username}}</strong>
 
 <p>{{comment}}</p>
 <span>{{formatDate}}</span>
@@ -38,6 +53,7 @@ Location:
 
 {{/each}}
 
+</div>
 <form method="POST" action="/reviews/create/{{ent.id}}">
   Write a review:
   <input name="comment" type="textarea">
@@ -49,6 +65,6 @@ Location:
 <a href="/ent/{{ent.id}}/delete">Delete</a>
 <a href="/reviews/{{ent.id}}/delete">Delete</a>
 
-
+</div>
 <script src="../../js/main.js"> </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapDetails"></script>
