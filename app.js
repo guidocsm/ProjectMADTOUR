@@ -28,6 +28,9 @@ app.locals.title = projectName;
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
+const reviewRoutes = require("./routes/reviews.routes");
+app.use("/reviews", reviewRoutes);
+
 const artRoutes = require("./routes/art.routes");
 app.use("/arts", artRoutes);
 

@@ -1,8 +1,11 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const Interest = require("../models/Interest.model");
+const Review = require("../models/Review.model");
 
 const fileUploader = require("../config/cloudinary.config");
+
+const { isAdmin, isOwner } = require("../utils");
 
 router.get("/all-ent", (req, res) => {
   Interest.find({ $or: [{ type: "Disco" }, { type: "Pub" }, { type: "Outdoor" }] }).then((ents) =>
@@ -17,15 +20,16 @@ router.get("/create", (req, res) => {
 });
 
 router.post("/create", fileUploader.single("image"), (req, res) => {
+  let image = req.file?.path || "https://www.kenyons.com/wp-content/uploads/2017/04/default-image-620x600.jpg";
   // res.json(req.body)
-  const { name, type, musicType, price, lat,lng , webSite, openingTime, closingTime, image } = req.body;
+  const { name, type, musicType, price, lat,lng , webSite, openingTime, closingTime } = req.body;
 
    let location = {
      type: "Point",
      coords: [lat, lng],
    };
 
-  Interest.create({ name, type, musicType, price, location, webSite, openingTime, closingTime, image: req.file.path })
+  Interest.create({ name, type, musicType, price, location, webSite, openingTime, closingTime, image })
     .then(() => {
       res.redirect("/ent/all-ent");
     })
@@ -35,7 +39,18 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
 router.get("/details/:id", (req, res) => {
   const { id } = req.params;
 
-  Interest.findById(id).then((ent) => res.render("entertainment/details", { ent }));
+  const user = req.session.currentUser;
+
+   Interest.findById(id)
+     .then((ent) => {
+     Review.find({ ref: ent.id })
+       .populate("creator")
+       .populate("ref")
+       .then((reviews) => {
+         console.log(reviews);
+         res.render("entertainment/details", { ent, reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, ent) });
+       });
+   });
 });
 
 router.get("/edit/:id", (req, res) => {
@@ -48,9 +63,11 @@ router.get("/edit/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
+router.post("/edit/:id", fileUploader.single("uploadedImage"), (req, res) => {
   const { id } = req.params;
   const { name, type, musicType, price, lat, lng, webSite, openingTime, closingTime, image } = req.body;
+  let imageChosen = req.file?.path || image;
+
 
     let location = {
       type: "Point",
@@ -65,7 +82,7 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
     webSite,
     openingTime,
     closingTime,
-    image: req.file.path,
+    image: imageChosen,
 
     caracteristics: { musicType },
   }).then(() => res.redirect("/ent/all-ent"));

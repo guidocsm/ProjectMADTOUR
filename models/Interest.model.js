@@ -26,8 +26,7 @@ const interestSchema = new Schema(
     image: String,
 
     caracteristics: {
-      creationDate: Date,
-      owner: String,
+      
       musicType: String,
       food: String,
     },

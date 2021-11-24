@@ -186,7 +186,9 @@ h1 {
 }
 
 .latitudeCenter,
-.longitudeCenter,
+.longitudeCenter{
+  display: none;
+}
 
 .labelLocation {
   display: block;
@@ -261,6 +263,8 @@ h1 {
   color: white
 }
 .container-red{
+  display: flex;
+  align-items: center;
   background-color: #dc143c;
 }
 .container-weather{

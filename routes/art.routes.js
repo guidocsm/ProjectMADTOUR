@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const Interest = require("../models/Interest.model");
+const Review = require("../models/Review.model");
+
 const { isLoggedIn } = require("../middlewares")
 
 const { isAdmin, isOwner } = require("../utils");
@@ -8,7 +10,7 @@ const { isAdmin, isOwner } = require("../utils");
 const fileUploader = require("../config/cloudinary.config");
 
 router.get("/all-arts", (req, res) => {
-  console.log(res);
+ 
   Interest.find({ $or: [{ type: "Museum" }, { type: "Monument" }, { type: "Theater" }] }).then((arts) =>
     res.render("art/all-arts", { arts })
   );
@@ -22,8 +24,7 @@ router.get("/create", (req, res) => {
 
 router.post("/create", fileUploader.single("image"), (req, res) => {
 
-let image ;
-
+  let image = req.file?.path || "https://www.kenyons.com/wp-content/uploads/2017/04/default-image-620x600.jpg";
 
   const {
     name,
@@ -60,7 +61,7 @@ let image ;
     webSite,
     openingTime,
     closingTime,
-    image: req.file.path
+    image
   })
     .then(() => {
       res.redirect("/arts/all-arts");
@@ -70,12 +71,19 @@ let image ;
 
 router.get("/details/:id",isLoggedIn, (req, res) => {
   const { id } = req.params;
-  console.log(req.session.currentUser);
+ 
   user = req.session.currentUser;
-  Interest.findById(id).then((art) =>
-    {console.log(art)
-      res.render("art/details", { art, isAdmin: isAdmin(user), isOwner: isOwner(user._id, art) })}
+
+  Interest.findById(id)
+    .then((art) => { 
+      Review.find({ ref: art.id })
+      .populate("creator")
+      .populate("ref")
+      .then((reviews) => {
+        console.log(reviews)
+        res.render("art/details", { art,reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, art) })}
   );
+});
 });
 
 router.get("/edit/:id", (req, res) => {
@@ -88,9 +96,10 @@ router.get("/edit/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
+router.post("/edit/:id", fileUploader.single("uploadedImage"), (req, res) => {
   const { id } = req.params;
-  const { name, description, type, lat, lng, webSite, openingTime, closingTime, creationDate, owner, price } = req.body;
+  const { name, description, type, lat, lng, webSite, openingTime, closingTime, creationDate, owner, price,image } = req.body;
+   let imageChosen = req.file?.path || image;
 
     let location = {
       type: "Point",
@@ -106,7 +115,7 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
     webSite,
     openingTime,
     closingTime,
-    image: req.file.path ,
+    image: imageChosen ,
 
     caracteristics: { creationDate, owner },
   }).then(() => res.redirect("/arts/all-arts"));

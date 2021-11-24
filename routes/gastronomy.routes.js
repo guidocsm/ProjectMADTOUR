@@ -1,7 +1,11 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const Interest = require("../models/Interest.model");
+const Review = require("../models/Review.model");
+const { isAdmin, isOwner } = require("../utils");
 const fileUploader = require("../config/cloudinary.config");
+
+
 router.get("/all-gastronomy", (req, res) => {
   Interest.find({ $or: [{ type: "Restaurant" }, { type: "Bar" }] }).then((gasts) =>
     res.render("gastronomy/all-gastronomy", { gasts })
@@ -16,6 +20,7 @@ router.get("/create", (req, res) => {
 
 router.post("/create", fileUploader.single("image"), (req, res) => {
   const { name, type, description, price, food, lat,lng, webSite, openingTime, closingTime } = req.body;
+  let image = req.file?.path || "https://www.kenyons.com/wp-content/uploads/2017/04/default-image-620x600.jpg";
 
   let location = {
     type: "Point",
@@ -30,7 +35,7 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
     webSite,
     openingTime,
     closingTime,
-    image: req.file.path,
+    image,
     caracteristics: { food },
   })
     .then(() => {
@@ -41,9 +46,18 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
 
 router.get("/details/:id", (req, res) => {
   const { id } = req.params;
-  Interest.findById(id).then((gast) => {
-    console.log(gast)
-        res.render("gastronomy/details", gast)});
+  const user = req.session.currentUser
+  
+  Interest.findById(id)
+    .then((gastronomy) => {
+    Review.find({ ref: gastronomy.id })
+      .populate("creator")
+      .populate("ref")
+      .then((reviews) => {
+        console.log(gastronomy);
+        res.render("gastronomy/details", { gastronomy, reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, gastronomy) });
+      });
+  });
 });
 
 router.get("/edit/:id", (req, res) => {
@@ -56,9 +70,10 @@ router.get("/edit/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
+router.post("/edit/:id", fileUploader.single("uploadedImage"), (req, res) => {
   const { id } = req.params;
-  const { name, type, description, price, food, lat, lng, review, webSite, openingTime, closingTime, image } = req.body;
+  const { name, type, description, price, food, lat, lng, review, webSite, openingTime, closingTime , image} = req.body;
+  let imageChosen = req.file?.path || image;
 
     let location = {
       type: "Point",
@@ -74,7 +89,7 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
     webSite,
     openingTime,
     closingTime,
-    image,
+    image: imageChosen,
 
     caracteristics: { food },
   }).then(() => res.redirect("/gastronomy/all-gastronomy"));

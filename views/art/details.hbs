@@ -17,18 +17,41 @@ Description:
 <br />
 <img src="{{art.image}}" />
 
-Location:
+
+{{#each reviews}}
+
+<h1>{{creator.username}}</h1>
+<p>{{comment}}</p>
+<span>{{createdAt}}</span>
+
+{{#if ../isAdmin}}
+  <a href="/reviews/delete/{{id}}/{{../art.id}}">Delete</a>
+{{/if}}
+
+{{/each}}
+
+
+
+
+
 
 <span class="latitudeCenter">{{art.location.coords.[0]}}</span>
 <span class="longitudeCenter">{{art.location.coords.[1]}}</span>
 
 <div id="map"></div>
 
+<form method="POST" action="/reviews/create/{{art.id}}">
+  Write a review
+  <input name="comment" type="textarea">
+  <input type="submit">
+</form>
+
+
 {{#if isAdmin}}
 
   <a href="/arts/edit/{{art.id}}">Edit</a>
   <br />
-
+<a href="/reviews/create/{{art.id}}">Nueva review</a>
   <a href="/arts/{{art.id}}/delete">Delete</a>
 
 {{/if}}
@@ -39,8 +62,12 @@ Location:
   <br />
 
   <a href="/arts/{{art.id}}/delete">Delete</a>
+    
+    <a href="/reviews/{{ent.id}}/delete">Delete</a>
 
 {{/if}}
+
+
 
   <script src="../../js/main.js"> </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapDetails"></script>

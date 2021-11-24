@@ -1,21 +1,42 @@
 <h1 class="gastronomy-details">Details</h1>
 
 Name:
-<h1 class="interestName">{{name}}</h1>
+<h1 class="interestName">{{gastronomy.name}}</h1>
 <br />
 
 Type:
-{{type}}
+{{gastronomy.type}}
+<br>
+Type of Food:
+{{gastronomy.caracteristics.food}}
 <br />
 
 
 
-<img src="{{image}}" />
+<img src="{{gastronomy.image}}" />
 
-<span class="latitudeCenter">{{location.coords.[0]}}</span>
-<span class="longitudeCenter">{{location.coords.[1]}}</span>
+<span class="latitudeCenter">{{gastronomy.location.coords.[0]}}</span>
+<span class="longitudeCenter">{{gastronomy.location.coords.[1]}}</span>
 
 <div id="map"></div>
+
+{{#each reviews}}
+<h1>{{creator.username}}</h1>
+<p>{{comment}}</p>
+<span>{{createdAt}}</span>
+
+{{#if ../isAdmin}}
+  <a href="/reviews/delete/{{id}}/{{../gastronomy.id}}">Delete</a>
+{{/if}}
+
+{{/each}}
+
+<form method="POST" action="/reviews/create/{{gastronomy.id}}">
+  Write a review:
+  <input name="comment" type="textarea">
+  <input type="submit">
+</form>
+
 
 <a href="/gastronomy/edit/{{id}}">Edit</a>
 <a href="/gastronomy/{{id}}/delete">Delete</a>

@@ -25,9 +25,28 @@ Location:
 
 <div id="map"></div>
 
+{{#each reviews}}
+<h1>{{creator.username}}</h1>
+<p>{{comment}}</p>
+<span>{{createdAt}}</span>
+
+{{#if ../isAdmin}}
+  <a href="/reviews/delete/{{id}}/{{../ent.id}}">Delete</a>
+{{/if}}
+
+{{/each}}
+
+<form method="POST" action="/reviews/create/{{ent.id}}">
+  Write a review:
+  <input name="comment" type="textarea">
+  <input type="submit">
+</form>
+
 <a href="/ent/all-ent">Back</a>
 <a href="/ent/edit/{{ent.id}}">Edit</a>
 <a href="/ent/{{ent.id}}/delete">Delete</a>
+<a href="/reviews/{{ent.id}}/delete">Delete</a>
+
 
 <script src="../../js/main.js"> </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EY6nvc3be8-6agfTwW2PNHPH0GX3dg8&callback=initMapDetails"></script>
