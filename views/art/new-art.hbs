@@ -1,23 +1,24 @@
-<h1>New Art</h1>
-<div class="form-new-art">
+<h1 class="all-arts" >New Art</h1>
+<div class="new-interest">
 
+  <div class="form-new">
   <form action="/arts/create" method="POST" enctype="multipart/form-data">
-
-    <label class="name-new-art">
-      Name:
+  <label class="name-new-art">
+      Name: <br>
       <input type="text" name="name" />
-    </label>
+  </label>
+
     <br>
 
     <label class="">
-      Description:
+      Description: <br>
       <input type="text" name="description" />
     </label>
-    <br>
+    
 
 
     <label>
-      Type:
+      Type: <br>
       <select name="type">
         <option>Monument</option>
         <option>Museum</option>
@@ -28,13 +29,13 @@
     
 
     <label>
-      Image:
+      Image: <br>
       <input type="file" name="image" class="form-control-file" />
     </label>
     <br>
 
 
-    Location:
+    Location: <br>
     
       <input type="text" id="address" class="address">
       <button class="submit">enviar</button>
@@ -42,7 +43,7 @@
 
     <span class="latitudeCenter">40.4206213320784</span>
     <span class="longitudeCenter">-3.706324171610527</span>
-    <div id="map"></div>
+    
 
 
     <label class="labelLocation-art">
@@ -53,19 +54,19 @@
 
 
     <label>
-      Website:
+      Website: <br>
       <input type="text" name="webSite" />
     </label>
     <br>
 
     <label>
-      Opening Time:
+      Opening Time: <br>
       <input type="text" name="openingTime" />
     </label>
-    <br>
+    
 
     <label>
-      ClosingTime:
+      Closing Time: <br>
       <input type="text" name="closingTime" />
     </label>
     <br>
@@ -77,10 +78,13 @@
     {{/if}}
   </form>
 
-  {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-  {{/if}}
+  
+</div>
 
+
+<div class="map">
+<div id="map"></div>
+</div>
 
 </div>
 

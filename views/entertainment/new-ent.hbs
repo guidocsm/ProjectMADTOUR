@@ -1,34 +1,40 @@
-<div>
-  <h1 class="new-art">New Entertainment</h1>
+  <h1 class="all-arts">New Entertainment</h1>
 
+<div class="new-interest">
+
+<div class="form-new">
   <form action="/ent/create" method="POST" enctype="multipart/form-data">
 
     <label>
-      Name:
+      Name: <br>
       <input type="text" name="name" />
     </label>
+    <br>
 
 
     <label>
-      Type:
+      Type: <br>
       <select name="type">
         <option value="Disco">Disco</option>
         <option value="Pub">Pub</option>
         <option value="Outdoor">Outdoor</option>
       </select>
     </label>
+    
 
 
     <label>
-      Music Type:
+      Music Type: <br>
       <input type="text" name="musicType" placeholder="Reggaeton" />
     </label>
+    <br>
 
 
     <label>
-      Image:
+      Image: <br>
       <input type="file" name="image" class="form-control-file" />
     </label>
+    <br>
 
 
     <label>
@@ -38,48 +44,51 @@
         <option value="Normal">Normal</option>
         <option value="Expensive">Expensive</option>
       </select>
-    </label>
+    </label> <br>
+    
 
 
-    Location:
+    Location: <br>
       <input type="text" id="address" class="address">
       <button class="submit">Send</button>
-    <br>
+    
     <span class="latitudeCenter">40.4206213320784</span>
     <span class="longitudeCenter">-3.706324171610527</span>
-    <div id="map"></div>
+    <br>
+   
    
 
-      <label class="labelLocation">
+      <label class="labelLocation-art">
         Location:
       <input type="text" name="lat" class="latitudeText" />
       <input type="text" name="lng" class="longitudeText" />
     </label>
+   
 
 
-    <div id="map"></div>
-      <label>
-        Review:
-        <input type="text" name="" />
-      </label>
+   
+    
 
 
     <label>
-      Website:
+      Website: <br>
       <input type="text" name="webSite" />
     </label>
+    <br>
 
 
-    <label>
-      Opening Time:
+    <label> 
+      Opening Time: <br>
       <input type="text" name="openingTime" />
     </label>
+    
 
 
     <label>
-      ClosingTime:
+      ClosingTime: <br>
       <input type="text" name="closingTime" />
     </label>
+    <br>
 
 
     <input type="submit" />
@@ -89,6 +98,12 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
+
+  </div>
+
+<div class="map">
+<div id="map"></div>
+</div>
 
 </div>
 

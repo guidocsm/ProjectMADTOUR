@@ -36,19 +36,20 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
 router.get("/details/:id", (req, res) => {
   const { id } = req.params;
 
-  const user = req.session.currentUser;
+  user = req.session.currentUser;
 
-   Interest.findById(id)
-     .then((ent) => { Review.find({ ref: ent.id })
-       .populate("creator")
-       .populate("ref")
-       .lean()
-       .then((reviews) => { reviews.forEach((review) => { 
-         if (review.date) review.formatDate = formatDate(review) 
+  Interest.findById(id).then((ent) => {
+    Review.find({ ref: ent.id })
+      .populate("creator")
+      .populate("ref")
+      .lean()
+      .then((reviews) => {
+        reviews.forEach((review) => {
+          if (review.date) review.formatDate = formatDate(review);
         });
-         res.render("entertainment/details", { ent, reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, ent) });
-       });
-   });
+        res.render("entertainment/details", { ent, reviews, isAdmin: isAdmin(user), isOwner: isOwner(user._id, ent) });
+      });
+  });
 });
 
 

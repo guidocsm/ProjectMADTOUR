@@ -1,40 +1,44 @@
-<h1>New Gastronomy</h1>
-<div>
+<h1 class="all-arts">New Gastronomy</h1>
+
+
+<div class="new-interest">
+  <div class="form-new">
+
  
   <form action="/gastronomy/create" method="POST" enctype="multipart/form-data">
     <label>
-      Name:
+      Name: <br>
       <input type="text" name="name" />
-    </label>
+    </label> 
     <label>
-      type:
+      type: <br>
       <select name="type">
         <option>Restaurant</option>
         <option>Bar</option>
-      </select>
-    </label>
+      </select> <br>
+    </label> 
     <label>
-      Description:
+      Description: <br>
 
       <input type="text" name="description" />
-    </label>
+    </label> <br>
     <label>
-      price:
+      price: <br>
       <select name="price">
         <option>Economic</option>
         <option>Normal</option>
-        <option>Expensive</option>
-      </select>
+        <option>Expensive</option> 
+      </select> 
     </label>
     <label>
-      Food:
+      Food: <br>
       <input type="text" name="food" />
-    </label>
+    </label> <br>
     <label>
-      Image:
+      Image: <br> 
       <input type="file" name="image" class="form-control-file" />
-    </label>
-
+    </label> <br>
+Location:
        <input type="text" id="address" class="address">
       <button class="submit">enviar</button>
         <br>
@@ -44,21 +48,17 @@
     <span class="longitudeCenter">-3.706324171610527</span>
 
 
-    <div id="map"></div>
 
-     <label class="labelLocation">
+     <label class="labelLocation-art">
       Location:
       <input type="text" name="lat" class="latitudeText" />
       <input type="text" name="lng" class="longitudeText" />
-    </label>
-    <label>
-      Review:
-      <input type="text" name="" />
-    </label>
+    </label> <br>
+    
     <label>
       Website:
       <input type="text" name="webSite" />
-    </label>
+    </label> <br>
     <label>
       Opening Time:
       <input type="text" name="openingTime" />
@@ -72,6 +72,11 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
+  </div>
+  
+<div class="map">
+<div id="map"></div>
+</div>
 </div>
 
 

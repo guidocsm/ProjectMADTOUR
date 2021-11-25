@@ -39,7 +39,7 @@ router.post("/create", fileUploader.single("image"), (req, res) => {
 
   Interest.create({ name, description,  type,  location, price, review, webSite, openingTime, closingTime, image }) 
   .then(() => { res.redirect("/arts/all-arts") })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err)); 
 });
 
 

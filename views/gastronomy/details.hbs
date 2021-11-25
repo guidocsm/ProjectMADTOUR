@@ -97,10 +97,26 @@ Type of Food:
 <input type="submit" value="Send" class="btn btn-danger">
 </form>
 
+{{#if isAdmin}}
+
+  <a href="/gastronomy/edit/{{gastronomy.id}}">Edit</a>
+  <br />
+{{!-- <a href="/reviews/create/{{gastronomy.id}}">Nueva review</a> --}}
+  <a href="/gastronomy/{{gastronomy.id}}/delete">Delete</a>
+
+{{/if}}
+
+{{#if isOwner}}
+
+<a href="/gastronomy/edit/{{gastronomy.id}}">Edit</a>
+<a href="/gastronomy/{{gastronomy.id}}/delete">Delete</a>
 
 
-<a href="/gastronomy/edit/{{id}}">Edit</a>
-<a href="/gastronomy/{{id}}/delete">Delete</a>
+{{/if}}
+
+
+
+
 
 
 

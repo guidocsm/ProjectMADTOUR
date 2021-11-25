@@ -82,10 +82,25 @@ Price:
 <input type="submit" value="Send" class="btn btn-danger">
 </form>
 
-<a href="/ent/all-ent">Back</a>
-<a href="/ent/edit/{{ent.id}}">Edit</a>
-<a href="/ent/{{ent.id}}/delete">Delete</a>
+{{#if isAdmin}}
 
+  <a href="/ent/edit/{{ent.id}}">Edit</a>
+  <br />
+
+  <a href="/ent/{{ent.id}}/delete">Delete</a>
+
+{{/if}}
+
+{{#if isOwner}}
+
+  <a href="/ent/edit/{{ent.id}}">Edit</a>
+  <br />
+
+  <a href="/ent/{{ent.id}}/delete">Delete</a>
+    
+    <a href="/reviews/{{ent.id}}/delete">Delete</a>
+
+{{/if}}
 
 </div>
 <script src="../../js/main.js"> </script>

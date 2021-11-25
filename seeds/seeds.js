@@ -20,9 +20,25 @@ const interest_json = [
     closingTime: "20h",
   },
   {
+    name: "Museo de Historia de Madrid",
+    description:
+      "The Museum of History of Madrid, a former Municipal Museum, is located in the Centro district of the capital of Spain, on Fuencarral Street, it was built in the 18th century by the architect Pedro de Ribera.",
+    type: "Museum",
+    image: "http://eldiadezamora.es/upload/images/03_2020/3268_historia.jpg",
+
+    location: {
+      coords: ["40.42596104314411", "-3.7008315022254177"],
+    },
+    //review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://museomadrid.com/museo-de-historia/",
+    openingTime: "10h",
+    closingTime: "20h",
+  },
+
+  {
     name: "Museo del Thyssen",
     description:
-      "El Museo Nacional Thyssen-Bornemisza es una pinacoteca de maestros antiguos y modernos ubicada en Madrid,es el quinto museo más visitado en España, ",
+      "The Museo Nacional Thyssen-Bornemisza is a gallery of old and modern masters located in Madrid, it is the fifth most visited museum in Spain, ",
     type: "Museum",
     image: "https://www.lahoradigital.com/images/thumbs/MuseoThyssen.jpg-0004343.jpeg",
 
@@ -35,9 +51,24 @@ const interest_json = [
     closingTime: "19h",
   },
   {
+    name: "Teatro Lara",
+    description:
+      "The Lara theater is an old Italian-style theater built in 1879 at number 15 of the Corredera Baja de San Pablo in Madrid's Maravillas neighborhood, in the surroundings of what has been known as the Malasaña area since the last third of the 20th century. ",
+    type: "Theater",
+    image: "https://vramon1958.files.wordpress.com/2013/12/el-lara-5.jpg",
+
+    location: {
+      coords: ["40.422260182304775", "-3.7044775310606983"],
+    },
+    //review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "http://www.teatrolara.com/",
+    openingTime: "12h",
+    closingTime: "22h",
+  },
+  {
     name: "Tempo de Debod",
     description:
-      "El Templo de Debod es un edificio del antiguo Egipto localizado actualmente en la ciudad española de Madrid. Está situado al oeste de la plaza de España, junto al paseo del Pintor Rosales, en un alto donde se encontraba el Cuartel de la Montaña ",
+      "The Temple of Debod is an ancient Egyptian building currently located in the Spanish city of Madrid. It is located to the west of the Plaza de España, next to the Paseo del Pintor Rosales, on a height where the Cuartel de la Montaña was located",
 
     type: "Monument",
     image:
@@ -52,7 +83,7 @@ const interest_json = [
   {
     name: "Puerta de Alcalá",
     description:
-      "La puerta de Alcalá es una de las cinco antiguas puertas reales que daban acceso a la ciudad de Madrid.​Se encuentra situada en el centro de la rotonda de la Plaza de la Independencia.",
+      "The Puerta de Alcalá is one of the five old royal gates that gave access to the city of Madrid, and is located in the center of the roundabout in Plaza de la Independencia.",
     creationDate: "January 01, 1778 ",
     type: "Monument",
     image: "https://imgs-akamai.mnstatic.com/85/93/8593f28dd7f0bca602eb336c05305cc3.jpg",
@@ -65,7 +96,7 @@ const interest_json = [
   {
     name: "Kapital",
     type: "Disco",
-
+    image: "https://www.limusinaspremiumadrid.com/wp-content/uploads/discoteca-kapital-madrid-3.jpg",
     price: "Expensive",
     location: {
       coords: ["40.41103860894415", "-3.6935275087847415"],
@@ -81,6 +112,7 @@ const interest_json = [
   {
     name: "Fabrik",
     type: "Disco",
+    image: "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/10/12/16340567226151.jpg",
     price: "Expensive",
     location: {
       coords: ["40.265685849600224", "-3.8405364961606714"],
@@ -94,9 +126,25 @@ const interest_json = [
     },
   },
   {
+    name: "Teatro Barceló",
+    type: "Disco",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Teatro_Barcel%C3%B3_%28Madrid%29_01.jpg",
+    price: "Expensive",
+    location: {
+      coords: ["40.427202874031956", "-3.6997662752364993"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://teatrobarcelo.com/",
+    openingTime: "21:00h",
+    closingTime: "07h",
+    caracteristics: {
+      musicType: "Comercial",
+    },
+  },
+  {
     name: "Cherokee",
     type: "Pub",
-
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/07/ed/e2/f0/playoff-cherokee.jpg",
     price: "Normal",
     location: {
       coords: ["40.427079155819754", "-3.6957263399663134"],
@@ -112,6 +160,7 @@ const interest_json = [
   {
     name: "Riu Plaza",
     type: "Outdoor",
+    image: "https://www.riu.com/en/binaris/rooftop-riu-plaza-espana-6_tcm55-221735.jpg?v=tm020221_0941",
     price: "Expensive",
     location: {
       coords: ["40.4252822039076", "-3.7104951320877095"],
@@ -188,9 +237,26 @@ const interest_json = [
     webSite: "https://diverxo.com/",
     openingTime: "13h",
     closingTime: "00:30h",
-    image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elle-restaurante-allright-8-1556206301.jpg",
+    image: "https://imag.bonviveur.com/fotografia-del-comedor-de-diverxo.jpg",
     caracteristics: {
       food: "Gourmet",
+    },
+  },
+  {
+    name: "Taberna Malaspina ",
+    type: "Bar",
+    price: "Economic",
+
+    location: {
+      coords: ["40.41604360722879", "-3.7026611445553357"],
+    },
+    // review: { type: Schema.Types.ObjectId, ref: "Review" },
+    webSite: "https://www.tripadvisor.es/Restaurant_Review-g187514-d1023232-Reviews-Taberna_Malaspina-Madrid.html",
+    openingTime: "10h",
+    closingTime: "00:30h",
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/19/10/23/02/photo1jpg.jpg",
+    caracteristics: {
+      food: "Tapas",
     },
   },
 ];

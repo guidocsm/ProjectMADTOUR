@@ -1,17 +1,19 @@
 <h1 class="all-arts">Arts</h1>
 
-<a href="/arts/create">Create new</a>
-<br />
-<a href="/">Back to main menu</a>
-<div class="container container-all">
+<div class="buttons-all">
+<a href="/arts/create" class="infoButtons">Create new</a>
 
+<a href="/profile-page" class="infoButtons" >Back to menu</a>
+</div>
+<div class="container container-all">
+  
   {{#each arts}}
 
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="{{image}}" alt="Card image cap" />
       <div class="card-body">
-        <h5 class="card-title">Nombre: {{name}}</h5>
-        <p class="card-text">{{description}}</p>
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{type}}</p>
         <a href="/arts/details/{{id}}" class="btn btn-dark">Details</a>
       </div>
     </div>

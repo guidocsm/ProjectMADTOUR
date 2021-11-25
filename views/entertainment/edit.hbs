@@ -1,5 +1,8 @@
-<div>
-  <h1 class="new-art">Edit your place</h1>
+
+  <h1 class="all-arts">Edit your place</h1>
+<div class="new-interest">
+  <div class="form-new">
+
 
   <form action="/ent/edit/{{editEnt.id}}" method="POST" enctype="multipart/form-data">
 
@@ -20,13 +23,14 @@
     <label>
       Image:
       <input type="file" name="uploadedImage" class="form-control-file" value="{{editEnt.image}}" />
-      <input type="text" name="image" class="form-control-file" value="{{editEnt.image}}" />
-    </label
-
+      <input style= "display : none"type="text" name="image" class="form-control-file" value="{{editEnt.image}}" />
+    </label> 
+    <br>
+    
     <label>
       Music Type:
       <input type="text" name="musicType" placeholder="Reggaeton" value="{{editEnt.musicType}}"/>
-    </label>
+    </label> <br>
 
     <label>
       Price:
@@ -43,20 +47,15 @@
     <br>
     <span class="latitudeCenter">40.4206213320784</span>
     <span class="longitudeCenter">-3.706324171610527</span>
-    <div id="map"></div>
+    
    
 
-      <label class="labelLocation">
+      <label class="labelLocation-art">
         Location:
       <input type="text" name="lat" class="latitudeText" />
       <input type="text" name="lng" class="longitudeText" />
     </label>
-  <div id="map"></div>
 
-    <label>
-      Review:
-      <input type="text" name="" />
-    </label>
 
     <label>
       Website:
@@ -79,6 +78,9 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
+</div>
+
+<div id="map"></div>
 
 </div>
 

@@ -1,25 +1,26 @@
-<h1>Edit</h1>
-<div>
+<h1 class="all-arts">Edit</h1>
+<div class="new-interest">
+  <div class="form-new">
 
     <form action="/arts/edit/{{editArt.id}}" method="POST" enctype="multipart/form-data">
 
     <label>
-        Name:
+        Name: <br>
         <input type="text" name="name" value="{{editArt.name}}">
     </label>
-
+<br>
     <label>
-        Description:
+        Description: <br>
         <input type="text" name="description"value="{{editArt.description}}" >
-    </label>
+    </label> <br>
 
     <label>
-        creationDate:
+        creationDate: <br>
         <input type="date" name="date">
     </label>
     
     <label>
-        type:
+        Type: <br>
        <select name="type">
                     <option>Monument</option>
                     <option>Museum</option>
@@ -27,35 +28,27 @@
             </select>
     </label>
 
-    
-   <label>
-      Image:
-      <input type="file" name="uploadedImage" class="form-control-file" value="{{editArt.image}}" />
-      <input type="text" name="image" class="form-control-file" value="{{editArt.image}}" />
-    </label>
-
-
-    <label>
-        Owner:
-        <input type="text" name="owner">
-    </label>
-
-    <label>
-        Capacity:
-        <input type="text" name="capacity">
-    </label>
-         Location:
+     Location:
     
       <input type="text" id="address" class="address">
       <button class="submit">enviar</button>
         <br>
+   <label>
+      Image:
+      <input type="file" name="uploadedImage" class="form-control-file" value="{{editArt.image}}" />
+      <input type="text" style= "display : none "name="image" class="form-control-file" value="{{editArt.image}}" />
+    </label> <br>
+
+
+  
+        
 
     <span class="latitudeCenter">40.4206213320784</span>
     <span class="longitudeCenter">-3.706324171610527</span>
-    <div id="map"></div>
+    
 
 
-    <label class="labelLocation">
+    <label class="labelLocation-art">
       Location:
       <input type="text" name="lat"  class="latitudeText" value="{{editArt.location.coords.[0]}}"/>
       <input type="text" name="lng" class="longitudeText"value="{{editArt.location.coords.[1]}}" />
@@ -86,6 +79,8 @@
     {{/if}}
     </form>
 
+</div>
+<div id="map"></div>
 </div>
 
   <script src="../../js/main.js"> </script>

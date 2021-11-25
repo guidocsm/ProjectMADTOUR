@@ -1,5 +1,7 @@
-<h1>Edit your Place</h1>
-<div>
+<h1 class="all-arts">Edit your Place</h1>
+<div class="new-interest">
+  <div class="form-new">
+
 
   <form action="/gastronomy/edit/{{editGastronomy.id}}" method="POST" enctype="multipart/form-data">
 
@@ -24,7 +26,7 @@
      <label>
       Image:
       <input type="file" name="uploadedImage" class="form-control-file" value="{{editGastronomy.image}}" />
-      <input type="text" name="image" class="form-control-file" value="{{editGastronomy.image}}" />
+      <input type="text" style= "display:none"name="image" class="form-control-file" value="{{editGastronomy.image}}" />
     </label>
 
     <label>
@@ -49,7 +51,6 @@
     <span class="longitudeCenter">-3.706324171610527</span>
 
 
-    <div id="map"></div>
     
      <label class="labelLocation">
       Location:
@@ -82,6 +83,11 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
+
+  </div>
+
+    <div id="map"></div>
+
 </div>
 
   <script src="../../js/main.js"> </script>

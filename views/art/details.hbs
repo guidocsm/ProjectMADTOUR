@@ -6,41 +6,32 @@
 <br>
 
 <div class="art-details">
-  <div class="art-nameType">
-<strong class="art-interestName">{{art.name}}</strong>
-<br/>
+    <div class="details-left">
+      <div class="art-name">
+           <strong class="art-interestName">{{art.name}}</strong><br>
+           <strong><i>{{art.type}}</i></strong>
 
-<div class="art-type">
-  <strong>
-<i>{{art.type}}</i>
+      </div>
+   
+    </div>
+    <div class="details-right">
+      <h3>Description</h3>
+      <strong class="description-art">{{art.description}}</strong>
+ 
+   
+    <div class="hours">
+       <a href="{{art.webSite}}">Museo-del-Prado</a>
+    Opening/Closing:
+    {{art.openingTime}} /
 
-</div>
-</div>
-<br/>
+    {{art.closingTime}}
+    </div>
+    </div>
 
-<div class="art-descripWeb">
- <div class="art-description-title">Description</div>
- <br>
-  <div class="art-description-text">
-{{art.description}}.
-</div>
-<br/>
-
-<div class="art-website">
-  <div>
-Website:
-<a href="{{art.webSite}}">Museo-del-Prado</a>
-</div>
-
-Opening/Closing:
-{{art.openingTime}} /
-
-{{art.closingTime}}
-</div>
-</div>
 </div>
 
 
+ 
 
 <div class="content-details">
   <div class="div-details">
@@ -99,7 +90,7 @@ Opening/Closing:
 
   <a href="/arts/{{art.id}}/delete">Delete</a>
     
-    <a href="/reviews/{{ent.id}}/delete">Delete</a>
+    <a href="/reviews/{{art.id}}/delete">Delete</a>
 
 {{/if}}
 

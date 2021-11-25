@@ -1,6 +1,9 @@
-<h1>Entertainment</h1>
-<a href="/ent/create">Create new</a>
-<a href="/">Back to main menu</a>
+<h1 class="all-arts">Entertainment</h1>
+<div class="buttons-all">
+<a href="/ent/create" class="infoButtons">Create new</a>
+
+<a href="/profile-page" class="infoButtons" >Back to menu</a>
+</div>
 
 <div class="container container-all">
     
@@ -11,7 +14,7 @@
       <img class="card-img-top" src="{{image}}" alt="Card image cap" />
       <div class="card-body">
         <h5 class="card-title">{{name}}</h5>
-        <p class="card-text"><strong>Precio: </strong>{{price}}</p>
+        <p class="card-text"><strong>Price</strong>: {{price}}</p>
         <a href="/ent/details/{{id}}" class="btn btn-dark">Details</a>
       </div>
     </div>
