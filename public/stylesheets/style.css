@@ -475,6 +475,7 @@ h1 {
 } */
 
 .review-card{
+  background-color: white;
   border: 1px solid black;
   padding: 15px;
   border-radius: 15px;
@@ -673,7 +674,6 @@ align-items: center;
   text-align: center;
   font-family: Poppins;
   width: 100%;
-  background-color: #black;
   margin: 2.4rem;
   display: flex;
   justify-content: center;
