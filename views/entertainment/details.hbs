@@ -1,29 +1,50 @@
 <div class="container container-details">
 
 
-<h1 class="ent-details">Details</h1>
+<h1 class="ent-details-title">Entertainment Details</h1>
 
-Name:
-<strong class="details.title">{{ent.name}}</strong>
-<br />
-Type of place:
-<strong>{{ent.type}}</strong>
-<br />
 
-Music Type:
-<strong> {{ent.caracteristics.musicType}}</strong>
+<div class="ent-details">
 
-<br />
+<div class="ent-namePrice">
+  <div class="ent-name">
 
-Price:
+<strong class="details-title">{{ent.name}}</strong>
+<br/>
+</div>
+
+<div class="ent-price">
 <strong>  
-{{ent.price}}</strong>
-<br />
+<b/>
+<i>{{ent.type}}</strong></i>
+<br/>
+</div>
+</div>
+
+
+<div class="ent-musicType">
+      <div class="ent-typeof">
+        Type of Music:
+      </div>
+  <div class="musicType">
+<strong> {{ent.caracteristics.musicType}}</strong>
+</div>
+<br/>
+
+<div class="ent-typeof">
+Price:
+</div>
+<div class="ent-type">
+<strong>{{ent.price}}</strong>
+<br/>
+</div>
+</div>
+</div>
 
 <div class="content-details">
   <div class="div-details">
 
-<img src="{{ent.image}}" />
+<img src="{{ent.image}}" class="image-details" />
 
   </div>
   <div class="div-details">
@@ -36,8 +57,8 @@ Price:
 
 <span class="latitudeCenter">{{ent.location.coords.[0]}}</span>
 <span class="longitudeCenter">{{ent.location.coords.[1]}}</span>
-
-
+<h3>Reviews<hr></h3>
+<br>
 
 {{#each reviews}}
 <div class="review-card">
@@ -55,16 +76,16 @@ Price:
 {{/each}}
 
 
+<h4>Write a Review</h4>
 <form method="POST" action="/reviews/create/{{ent.id}}">
-  Write a review:
-  <input name="comment" type="textarea">
-  <input type="submit">
+  <textarea name="comment" type="textarea"></textarea>
+<input type="submit" value="Send" class="btn btn-danger">
 </form>
 
 <a href="/ent/all-ent">Back</a>
 <a href="/ent/edit/{{ent.id}}">Edit</a>
 <a href="/ent/{{ent.id}}/delete">Delete</a>
-<a href="/reviews/{{ent.id}}/delete">Delete</a>
+
 
 </div>
 <script src="../../js/main.js"> </script>

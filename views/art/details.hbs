@@ -2,6 +2,87 @@
 <div class="container container-details">
 
 <h1 class="details.title">Details</h1>
+
+<br>
+
+<div class="art-details">
+  <div class="art-nameType">
+<strong class="art-interestName">{{art.name}}</strong>
+<br/>
+
+<div class="art-type">
+  <strong>
+<i>{{art.type}}</i>
+
+</div>
+</div>
+<br/>
+
+<div class="art-descripWeb">
+ <div class="art-description-title">Description</div>
+ <br>
+  <div class="art-description-text">
+{{art.description}}.
+</div>
+<br/>
+
+<div class="art-website">
+  <div>
+Website:
+<a href="{{art.webSite}}">Museo-del-Prado</a>
+</div>
+
+Opening/Closing:
+{{art.openingTime}} /
+
+{{art.closingTime}}
+</div>
+</div>
+</div>
+
+
+
+<div class="content-details">
+  <div class="div-details">
+
+<img src="{{art.image}}" class="image-details" />
+
+  </div>
+  <div class="div-details">
+<div id="map"></div>
+  </div>
+</div>
+
+
+
+<h3>Reviews<hr></h3>
+<br>
+{{#each reviews}}
+<div class="review-card">
+<strong>{{creator.username}}</strong>
+<p>{{comment}}</p>
+<span>{{formatDate}}</span>
+
+
+{{#if ../isAdmin}}
+  <a href="/reviews/delete/{{_id}}/{{../art.id}}">Delete</a>
+{{/if}}
+</div>
+{{/each}}
+
+<h4>Write a Review</h4>
+<form method="POST" action="/reviews/create/{{art.id}}">
+  <textarea name="comment" type="textarea" rows="4" cols="50"></textarea>
+  <input type="submit" value="Send" class="btn btn-danger">
+</form>
+
+
+
+
+<span class="latitudeCenter">{{art.location.coords.[0]}}</span>
+<span class="longitudeCenter">{{art.location.coords.[1]}}</span>
+
+
 {{#if isAdmin}}
 
   <a href="/arts/edit/{{art.id}}">Edit</a>
@@ -21,63 +102,6 @@
     <a href="/reviews/{{ent.id}}/delete">Delete</a>
 
 {{/if}}
-<br><br>
-Name:
-<strong class="interestName">{{art.name}}</strong>
-<br />
-{{art.type}}
-<br />
-
-Description:
-{{art.description}}
-<br />
-
-<div class="content-details">
-  <div class="div-details">
-
-<img src="{{art.image}}" />
-
-  </div>
-  <div class="div-details">
-<div id="map"></div>
-  </div>
-</div>
-
-
-
-
-<form method="POST" action="/reviews/create/{{art.id}}">
-  
-  <br>
-  <input name="comment" type="textarea" rows="4" cols="50">  
-  <input type="submit">
-</form>
-
-
-
-{{#each reviews}}
-<div class="review-card">
-<strong>{{creator.username}}</strong>
-<p>{{comment}}</p>
-<span>{{formatDate}}</span>
-
-
-{{#if ../isAdmin}}
-  <a href="/reviews/delete/{{_id}}/{{../art.id}}">Delete</a>
-{{/if}}
-</div>
-{{/each}}
-
-
-
-
-
-
-<span class="latitudeCenter">{{art.location.coords.[0]}}</span>
-<span class="longitudeCenter">{{art.location.coords.[1]}}</span>
-
-
-
 
 
 

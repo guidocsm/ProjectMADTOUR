@@ -1,23 +1,66 @@
 <div class="container container-details">
 
 
-<h1 class="gastronomy-details">Details</h1>
+<h1 class="gastronomy-details-title">Gastronomy Details</h1>
+<div class="ent-details">
 
+<div class="ent-namePrice">
+  <div class="ent-name">
+
+<strong class="details-title">{{gastronomy.name}}</strong>
+<br/>
+</div>
+
+<div class="ent-price">
+<strong>  
+<b/>
+<i>{{gastronomy.type}}</strong></i>
+<br/>
+</div>
+</div>
+
+
+<div class="ent-musicType">
+      <div class="ent-typeof">
+        Type of Food:
+      </div>
+  <div class="musicType">
+<strong> {{ gastronomy.caracteristics.food}}</strong>
+</div>
+<br/>
+
+<div class="ent-typeof">
+       Price:
+
+</div>
+<div class="ent-type">
+<strong>{{gastronomy.price}}</strong>
+<br/>
+</div>
+</div>
+</div>
+
+
+
+{{!-- <div class="gastronomy-details">
 Name:
 <strong class="interestName">{{gastronomy.name}}</strong>
-<br />
 
+<div class="gastronomy-typeof">
 Type of place:
 {{gastronomy.type}}
-<br>
+
 Type of Food:
 {{gastronomy.caracteristics.food}}
-<br />
+</div>
+
+</div> --}}
 
 <div class="content-details">
   <div class="div-details">
 
-<img src="{{gastronomy.image}}" />
+
+<img src="{{gastronomy.image}}" class="image-details" />
 
   </div>
   <div class="div-details">
@@ -32,13 +75,9 @@ Type of Food:
 <span class="latitudeCenter">{{gastronomy.location.coords.[0]}}</span>
 <span class="longitudeCenter">{{gastronomy.location.coords.[1]}}</span>
 
-<form method="POST" action="/reviews/create/{{gastronomy.id}}">
-  Write a review:
-  <input name="comment" type="textarea">
-  <input type="submit">
-</form>
 
-<h3>Reviews</h3>
+<h3>Reviews<hr></h3>
+<br>
 {{#each reviews}}
 <div class="review-card">
 
@@ -52,6 +91,11 @@ Type of Food:
 </div>
 {{/each}}
 
+  <h4>Write a Review</h4>
+<form method="POST" action="/reviews/create/{{gastronomy.id}}">
+  <textarea name="comment" type="textarea"></textarea>
+<input type="submit" value="Send" class="btn btn-danger">
+</form>
 
 
 

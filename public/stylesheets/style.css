@@ -451,14 +451,122 @@ h1 {
   margin: 0 2rem;
 }
 
-.content-details img{
+/* .content-details img{
   height: 400px;
   width: auto;
-}
+} */
 
 .review-card{
   border: 1px solid black;
   padding: 15px;
   border-radius: 15px;
   margin: 2rem 0;
+}
+
+.art-details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.art-descripWeb {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.art-description-title {
+  font-size: 35px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.art-description-text {
+  width: 400px;
+}
+
+.art-website {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.art-nameType {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.art-interestName {
+  font-size: 50px;
+}
+
+.labelLocation-art {
+  display: none;
+}
+
+.ent-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.image-details {
+  width: 550px;
+  height: 400px;
+}
+
+.ent-details-title {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}
+
+.ent-namePrice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ent-musicType {
+  display: flex;
+  flex-direction: column;
+}
+
+.ent-name {
+  font-size: 50px;
+}
+
+.musicType {
+  font-size: 35px;
+  font-style: italic;
+}
+
+.ent-type {
+  font-size: 20px;
+}
+
+.ent-typeof {
+  font-size: 12px;
+}
+
+.gastronomy-details-title {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}
+
+.gastronomy-details {
+  display: flex;
+}
+
+.gastronomy-typeof {
+  display: flex;
+
 }

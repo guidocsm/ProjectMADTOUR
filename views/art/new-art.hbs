@@ -1,28 +1,23 @@
 <h1>New Art</h1>
-<div>
+<div class="form-new-art">
 
   <form action="/arts/create" method="POST" enctype="multipart/form-data">
 
-    <label>
+    <label class="name-new-art">
       Name:
       <input type="text" name="name" />
     </label>
     <br>
 
-    <label>
+    <label class="">
       Description:
       <input type="text" name="description" />
     </label>
     <br>
 
-    <label>
-      creationDate:
-      <input type="date" name="date" />
-    </label>
-    <br>
 
     <label>
-      type:
+      Type:
       <select name="type">
         <option>Monument</option>
         <option>Museum</option>
@@ -30,6 +25,7 @@
       </select>
     </label>
     <br>
+    
 
     <label>
       Image:
@@ -37,17 +33,6 @@
     </label>
     <br>
 
-    <label>
-      Owner:
-      <input type="text" name="owner" />
-    </label>
-    <br>
-
-    <label>
-      Capacity:
-      <input type="text" name="capacity" />
-    </label>
-    <br>
 
     Location:
     
@@ -60,17 +45,12 @@
     <div id="map"></div>
 
 
-    <label class="labelLocation">
+    <label class="labelLocation-art">
       Location:
       <input type="text" name="lat"  class="latitudeText"/>
       <input type="text" name="lng" class="longitudeText" />
     </label>
 
-    <label>
-      Review:
-      <input type="text" name="" />
-    </label>
-    <br>
 
     <label>
       Website:

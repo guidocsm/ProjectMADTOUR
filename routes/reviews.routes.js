@@ -25,11 +25,20 @@ router.post("/create/:id", (req, res) => {
     const creator = req.session.currentUser._id
     const {comment} = req.body
 
-    Review.create({ creator, ref, comment }) 
-           .then((review) => { 
-            
-            res.redirect(`/arts/details/${ref}`)})
-           .catch((err) => console.log(err));
+    Review.create({ creator, ref, comment })
+      .then(() => { 
+      Interest.findById(ref)
+      .then(interest => {
+        if(interest.type == "Restaurant" || interest.type == "Bar" ){
+           res.redirect(`/gastronomy/details/${ref }`);
+        } else if(interest.type == "Museum" || interest.type == "Theater" || interest.type == "Monument" ){
+          res.redirect(`/arts/details/${ref}`);
+        } else if(interest.type == "Disco" || interest.type == "Pub" || interest.type == "Outdoor" ){
+          res.redirect(`/ent/details/${ref}`);
+        }
+      })
+    })
+      .catch((err) => console.log(err));
 })
 
 
