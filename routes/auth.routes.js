@@ -11,7 +11,7 @@ router.post("/signup", (req, res) => {
 
   User.find({ username }).then((user) => {
     if (user.length) {
-      res.render("auth/signup", { errorMessage: "Usuario ya existente." });
+      res.render("auth/signup", { errorMessage: "User already exists." });
     } else {
       const bcryptSalt = 10;
       const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -34,12 +34,12 @@ router.post("/login", (req, res) => {
   User.findOne({ username })
     .then((user) => {
       if (!user) {
-        res.render("auth/login", { errorMessage: "Usuario no reconocido" });
+        res.render("auth/login", { errorMessage: "Invalid user" });
         return;
       }
 
       if (bcrypt.compareSync(password, user.password) === false) {
-        res.render("auth/login", { errorMessage: "Contraseña incorrecta" });
+        res.render("auth/login", { errorMessage: "Invalid password" });
         return;
       }
 

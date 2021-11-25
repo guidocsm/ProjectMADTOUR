@@ -1,6 +1,11 @@
 body {
   font-family: "Poppins";
-  background-color: #DC143C;
+  background-image: url("http://cdn29.us1.fansshare.com/pictures/background/white-background-wallpaper-white-2064935813.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
+  background-position: center;
+  
 }
 
 a {
@@ -204,7 +209,7 @@ h1 {
 }
 
 .container-profile{
-  height: 70vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -376,7 +381,7 @@ h1 {
 }
 
 .profile-about{
-  height: 80vh;
+  height: 90vh;
   
 }
 .footer{
@@ -413,7 +418,7 @@ h1 {
 .parallaxMonument{
   position: absolute;
   font-family: Poppins;
-  top: 90%;
+  top: 95%;
   right: -200px;
   font-size: 2rem;
 }
@@ -434,6 +439,18 @@ h1 {
   right: -200px;
   font-size: 2rem;
   z-index: -1
+}
+
+.parallaxImg{
+  position: absolute;
+  font-family: Poppins;
+  top: 25%;
+  height: 100px;
+  width: auto;
+  left: 200px;
+  font-size: 2rem;
+  z-index: -1
+  
 }
 
 .container-details{
@@ -650,4 +667,16 @@ align-items: center;
 .form-new input{
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.295);
+}
+
+.footer{
+  text-align: center;
+  font-family: Poppins;
+  width: 100%;
+  background-color: #black;
+  margin: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
 }
