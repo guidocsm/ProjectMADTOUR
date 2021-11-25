@@ -39,8 +39,9 @@ Type of Food:
 </form>
 
 <h3>Reviews</h3>
-<div class="review-card">
 {{#each reviews}}
+<div class="review-card">
+
 <strong>{{creator.username}}</strong>
 <p>{{comment}}</p>
 <span>{{formatDate}}</span>
@@ -48,9 +49,9 @@ Type of Food:
 {{#if ../isAdmin}}
   <a href="/reviews/delete/{{_id}}/{{../gastronomy.id}}">Delete</a>
 {{/if}}
-
-{{/each}}
 </div>
+{{/each}}
+
 
 
 

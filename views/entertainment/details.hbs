@@ -38,9 +38,10 @@ Price:
 <span class="longitudeCenter">{{ent.location.coords.[1]}}</span>
 
 
-<div class="review-card">
 
 {{#each reviews}}
+<div class="review-card">
+
 <strong>{{creator.username}}</strong>
 
 <p>{{comment}}</p>
@@ -50,10 +51,10 @@ Price:
 {{#if ../isAdmin}}
   <a href="/reviews/delete/{{_id}}/{{../ent.id}}">Delete</a>
 {{/if}}
-
+</div>
 {{/each}}
 
-</div>
+
 <form method="POST" action="/reviews/create/{{ent.id}}">
   Write a review:
   <input name="comment" type="textarea">
